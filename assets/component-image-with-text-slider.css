@@ -1,0 +1,201 @@
+/* Import base image-with-text styles */
+@import url('component-image-with-text.css');
+
+/* Slider Container */
+.image-slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+/* Slider Slides */
+.slider-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.slider-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
+}
+
+.slider-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Slider Navigation Arrows */
+.slider-nav-arrows {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.slider-arrow {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(204, 164, 102, 1);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  color: #000;
+}
+
+.slider-arrow:hover {
+  background-color: rgba(204, 164, 102, 0.8);
+  transform: scale(1.05);
+}
+
+.slider-arrow:active {
+  transform: scale(0.95);
+}
+
+.slider-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (max-width: 749px) {
+  .slider-nav-arrows {
+    bottom: 15px;
+    left: 15px;
+  }
+
+  .slider-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .slider-arrow svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Button Styling with Borders */
+.image-with-text__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 3rem;
+}
+
+.button--bordered {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 30px;
+  border: 2px solid rgba(204, 164, 102, 1);
+  background-color: rgba(204, 164, 102, 1);
+  color: #000;
+  text-decoration: none;
+  font-family: 'Averia Serif Libre', var(--font-heading-family), serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.button--bordered.button--secondary {
+  background-color: transparent;
+  color: #fff;
+  border-color: rgba(204, 164, 102, 1);
+}
+
+.button--bordered:hover {
+  background-color: rgba(204, 164, 102, 0.8);
+  border-color: rgba(204, 164, 102, 0.8);
+  transform: translateY(-2px);
+}
+
+.button--bordered.button--secondary:hover {
+  background-color: rgba(204, 164, 102, 0.2);
+}
+
+/* Button Icon */
+.button-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+}
+
+.button-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Responsive Buttons */
+@media screen and (max-width: 749px) {
+  .image-with-text__buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .button--bordered {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1.4rem;
+  }
+}
+
+/* Enhanced Text Content Styling */
+.image-with-text-slider .image-with-text__text--caption {
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.image-with-text-slider .image-with-text__heading {
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+/* Gold/Tan color for heading highlight */
+.image-with-text-slider .image-with-text__heading strong,
+.image-with-text-slider .image-with-text__heading em {
+  color: rgba(204, 164, 102, 1);
+  font-style: normal;
+}
+
+/* Dark background option */
+.image-with-text-slider .color-scheme-1 .image-with-text__content {
+  background-color: rgb(18, 18, 18);
+  color: #fff;
+}
+
+/* Ensure proper spacing */
+.image-with-text-slider .image-with-text__content > * + * {
+  margin-top: 1.5rem;
+}
+
+.image-with-text-slider .image-with-text__text {
+  line-height: 1.6;
+  font-size: 1.6rem;
+}
