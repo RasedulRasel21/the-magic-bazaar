@@ -1,0 +1,285 @@
+<style>
+  .features-banner {
+    background-color: {{ section.settings.background_color }};
+    padding: 30px 20px;
+  }
+
+  .features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    align-items: center;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+  }
+
+  .feature-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: {{ section.settings.icon_color }};
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  .feature-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .feature-content h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    color: {{ section.settings.text_color }};
+  }
+
+  .feature-content p {
+    font-size: 14px;
+    margin: 0;
+    color: {{ section.settings.text_color }};
+    opacity: 0.85;
+  }
+
+  @media (max-width: 768px) {
+    .features-container {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    
+    .feature-item {
+      gap: 12px;
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+</style>
+
+<div class="features-banner">
+  <div class="features-container">
+    {% for block in section.blocks %}
+      <div class="feature-item" {{ block.shopify_attributes }}>
+        <div class="feature-icon">
+          {% if block.settings.use_custom_image and block.settings.custom_icon_image != blank %}
+            <img src="{{ block.settings.custom_icon_image | img_url: '100x100' }}" 
+                 alt="{{ block.settings.title }}"
+                 loading="lazy">
+          {% else %}
+          {% case block.settings.icon %}
+            {% when 'star' %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 3v18l-6-6"/>
+                <path d="M12 3l9 9-9 9"/>
+              </svg>
+            {% when 'badge' %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 8v4l3 3"/>
+                <path d="M3.5 12h3"/>
+                <path d="M17.5 12h3"/>
+                <path d="M12 3.5v3"/>
+                <path d="M12 17.5v3"/>
+              </svg>
+            {% when 'box' %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 8L12 3L3 8"/>
+                <path d="M3 8v8l9 5l9-5V8"/>
+                <path d="M12 3v18"/>
+                <path d="M3 8l9 5l9-5"/>
+              </svg>
+            {% when 'headset' %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 11v3a9 9 0 0018 0v-3"/>
+                <path d="M21 11a9 9 0 10-18 0"/>
+                <path d="M6 14v4a2 2 0 01-2 2H3"/>
+                <path d="M18 14v4a2 2 0 002 2h1"/>
+              </svg>
+            {% when 'hand-star' %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 9c0-1.1.9-2 2-2h2.5L9 3.5C9.6 2.6 10.7 2 12 2s2.4.6 3 1.5L17.5 7H20c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V9z"/>
+                <path d="M12 8l1.5 3 3.5.5-2.5 2.5.5 3.5-3-1.5-3 1.5.5-3.5L7 11.5l3.5-.5L12 8z"/>
+              </svg>
+            {% when 'badge-check' %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1 2-4z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            {% when 'package' %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 8L12 3L3 8"/>
+                <path d="M3 8v8l9 5l9-5V8"/>
+                <path d="M12 3v18"/>
+                <path d="M3 8l9 5"/>
+                <path d="M12 13l9-5"/>
+                <path d="M7.5 5.5l9 5"/>
+              </svg>
+            {% when 'phone-gear' %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                <circle cx="19" cy="5" r="3"/>
+                <path d="M19 3v4M17 5h4"/>
+              </svg>
+          {% endcase %}
+          {% endif %}
+        </div>
+        <div class="feature-content">
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.description }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Features Banner",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#C9A96E"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#2D2D2D"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon Color",
+      "default": "#2D2D2D"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "use_custom_image",
+          "label": "Use Custom Image Instead of Icon",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon_image",
+          "label": "Custom Icon Image",
+          "info": "Upload your own icon image (recommended: 100x100px)"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "star",
+              "label": "Quality (Star)"
+            },
+            {
+              "value": "badge",
+              "label": "Warranty (Badge)"
+            },
+            {
+              "value": "box",
+              "label": "Shipping (Box)"
+            },
+            {
+              "value": "headset",
+              "label": "Support (Headset)"
+            },
+            {
+              "value": "hand-star",
+              "label": "Quality - Hand Star"
+            },
+            {
+              "value": "badge-check",
+              "label": "Warranty - Badge Check"
+            },
+            {
+              "value": "package",
+              "label": "Shipping - Package"
+            },
+            {
+              "value": "phone-gear",
+              "label": "Support - Phone Gear"
+            }
+          ],
+          "default": "star"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Feature description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Features Banner",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "star",
+            "title": "High Quality",
+            "description": "crafted from top materials"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "badge",
+            "title": "Warrany Protection",
+            "description": "Over 2 years"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "box",
+            "title": "Free Shipping",
+            "description": "Order over 150 $"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "headset",
+            "title": "24 / 7 Support",
+            "description": "Dedicated support"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

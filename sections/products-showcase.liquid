@@ -1,0 +1,474 @@
+{% comment %}
+  Products Showcase Section
+  Displays products from a selected collection
+{% endcomment %}
+
+<style>
+  .products-showcase {
+    background-color: {{ section.settings.background_color }};
+    padding: 60px 20px;
+  }
+
+  .products-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  {% if section.settings.title_align == 'center' %}
+  .products-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  {% endif %}
+
+  .products-title {
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: {{ section.settings.title_color }};
+    margin: 0;
+    text-transform: uppercase;
+    {% if section.settings.title_align == 'center' %}
+    text-align: center;
+    width: 100%;
+    {% endif %}
+  }
+
+ .view-all-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 35px;
+    background-color: #c9a96e;
+    color: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+/* Outer thin border */
+.view-all-btn::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border: 1px solid #c9a96e;
+    pointer-events: none;
+}
+
+  .view-all-btn:hover {
+    background-color: {{ section.settings.button_hover_bg }};
+    color: {{ section.settings.button_hover_text_color }};
+  }
+
+  .view-all-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: {{ section.settings.button_text_color }};
+    transition: fill 0.3s ease;
+  }
+
+  .view-all-btn:hover svg {
+    fill: {{ section.settings.button_hover_text_color }};
+  }
+
+  .view-all-btn img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+  }
+
+  .product-card {
+    background-color: {{ section.settings.card_bg_color }};
+    border: 1px solid {{ section.settings.card_border_color }};
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 2px solid {{ section.settings.card_border_color }};
+  }
+
+  .product-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .product-card:hover .product-image-wrapper img {
+    transform: scale(1.05);
+  }
+
+  .product-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-name {
+    font-size: 28px;
+    font-weight: 400;
+    color: {{ section.settings.text_color }};
+    margin: 0 0 15px 0;
+  }
+
+  .product-description {
+    font-size: 14px;
+    line-height: 1.8;
+    color: {{ section.settings.text_color }};
+    text-align: justify;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+
+  .buy-now-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 30px;
+  background-color: {{ section.settings.button_bg_color }};
+  color: {{ section.settings.button_text_color }};
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  align-self: flex-start;
+  transition: all 0.3s ease;
+}
+
+/* Outer border */
+.buy-now-btn::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border: 1px solid {{ section.settings.button_border_color }};
+  pointer-events: none;
+}
+
+/* Hover */
+.buy-now-btn:hover {
+  background-color: {{ section.settings.button_hover_bg }};
+  color: {{ section.settings.button_hover_text_color }};
+}
+
+  .buy-now-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: {{ section.settings.button_text_color }};
+    transition: fill 0.3s ease;
+  }
+
+  .buy-now-btn:hover svg {
+    fill: {{ section.settings.button_hover_text_color }};
+  }
+
+  .buy-now-btn img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+
+  @media (max-width: 968px) {
+    .products-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .products-title {
+      font-size: 36px;
+    }
+
+    .products-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    {% if section.settings.title_align == 'center' %}
+    .products-header {
+      align-items: center;
+    }
+    {% endif %}
+  }
+
+  @media (max-width: 480px) {
+    .products-title {
+      font-size: 28px;
+    }
+
+    .product-name {
+      font-size: 24px;
+    }
+  }
+</style>
+
+<div class="products-showcase">
+  <div class="products-container">
+    {%- if section.settings.section_title != blank -%}
+      <div class="products-header">
+        <h2 class="products-title">{{ section.settings.section_title }}</h2>
+        {%- if section.settings.show_view_all_button and section.settings.collection != blank -%}
+          <a href="{{ collections[section.settings.collection].url }}" class="view-all-btn">
+            {%- if section.settings.view_all_text != blank -%}
+              {{ section.settings.view_all_text }}
+            {%- else -%}
+              VIEW ALL PRODUCTS
+            {%- endif -%}
+            {% if section.settings.view_all_use_custom_icon and section.settings.view_all_icon_image != blank %}
+              <img src="{{ section.settings.view_all_icon_image | img_url: '50x50' }}"
+                   alt="View All Icon"
+                   loading="lazy">
+            {% else %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6-1.41 1.41zM11.59 7.41L16.18 12l-4.59 4.59L13 18l6-6-6-6-1.41 1.41z"/>
+              </svg>
+            {% endif %}
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.collection != blank -%}
+      {%- assign collection = collections[section.settings.collection] -%}
+      {%- assign product_limit = section.settings.products_to_show | default: 6 -%}
+
+      <div class="products-grid">
+        {%- for product in collection.products limit: product_limit -%}
+          <div class="product-card">
+            {%- if product.featured_image != blank -%}
+              <div class="product-image-wrapper">
+                <img src="{{ product.featured_image | img_url: '800x' }}"
+                     alt="{{ product.title | escape }}"
+                     loading="lazy">
+              </div>
+            {%- endif -%}
+
+            <div class="product-info">
+              {%- if product.title != blank -%}
+                <h3 class="product-name">{{ product.title }}</h3>
+              {%- endif -%}
+
+              {%- if product.description != blank -%}
+                <div class="product-description">
+                  {{ product.description | strip_html | truncatewords: 50 }}
+                </div>
+              {%- endif -%}
+
+              <a href="{{ product.url }}" class="buy-now-btn">
+                {%- if section.settings.button_text != blank -%}
+                  {{ section.settings.button_text }}
+                {%- else -%}
+                  BUY NOW
+                {%- endif -%}
+                {% if section.settings.use_custom_icon and section.settings.button_icon_image != blank %}
+                  <img src="{{ section.settings.button_icon_image | img_url: '50x50' }}"
+                       alt="Button Icon"
+                       loading="lazy">
+                {% else %}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                  </svg>
+                {% endif %}
+              </a>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <p style="text-align: center; color: {{ section.settings.text_color }}; padding: 40px 0;">
+        Please select a collection to display products.
+      </p>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Products Showcase",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "OUR PRODUCTS"
+    },
+    {
+      "type": "select",
+      "id": "title_align",
+      "label": "Title Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "label": "Number of products to show",
+      "default": 6
+    },
+    {
+      "type": "header",
+      "content": "View All Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all_button",
+      "label": "Show View All Button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View All Button Text",
+      "default": "VIEW ALL PRODUCTS"
+    },
+    {
+      "type": "checkbox",
+      "id": "view_all_use_custom_icon",
+      "label": "Use Custom Icon for View All Button",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "view_all_icon_image",
+      "label": "View All Button Icon Image",
+      "info": "Upload custom icon (recommended: 50x50px)"
+    },
+    {
+      "type": "header",
+      "content": "Product Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Product Button Text",
+      "default": "BUY NOW"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_icon",
+      "label": "Use Custom Icon for Product Buttons",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "button_icon_image",
+      "label": "Product Button Icon Image",
+      "info": "Upload custom icon (recommended: 50x50px)"
+    },
+    {
+      "type": "header",
+      "content": "Color Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#0a0a0a"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card Border Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button Border Color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg",
+      "label": "Button Hover Background",
+      "default": "#d4b57a"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Button Hover Text Color",
+      "default": "#000000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Products Showcase"
+    }
+  ]
+}
+{% endschema %}

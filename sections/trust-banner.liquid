@@ -1,0 +1,129 @@
+<style>
+  .trust-banner {
+    background-color: #c9a961;
+    padding: 40px 20px;
+  }
+
+  .trust-banner__container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+  }
+
+  .trust-banner__item {
+    text-align: center;
+  }
+
+  .trust-banner__stars {
+    color: #f4d03f;
+    font-size: 20px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+  }
+
+  .trust-banner__number {
+    font-size: 48px;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin: 10px 0 5px;
+    line-height: 1;
+  }
+
+  .trust-banner__label {
+    font-size: 20px;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  .trust-banner__divider {
+    width: 2px;
+    height: 120px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    display: block !important;
+  }
+
+  @media (max-width: 768px) {
+    .trust-banner__container {
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .trust-banner__divider {
+      width: 80px;
+      height: 1px;
+    }
+
+    .trust-banner__number {
+      font-size: 36px;
+    }
+
+    .trust-banner__label {
+      font-size: 18px;
+    }
+  }
+</style>
+
+<section class="trust-banner">
+  <div class="trust-banner__container">
+    <div class="trust-banner__item">
+      <div class="trust-banner__stars">★★★★★</div>
+      <h2 class="trust-banner__number">{{ section.settings.reviews_count }}</h2>
+      <p class="trust-banner__label">{{ section.settings.reviews_label }}</p>
+    </div>
+
+    <div class="trust-banner__divider"></div>
+
+    <div class="trust-banner__item">
+      <p class="trust-banner__label" style="margin-bottom: 10px;">{{ section.settings.customers_heading }}</p>
+      <h2 class="trust-banner__number">{{ section.settings.customers_count }}</h2>
+      <p class="trust-banner__label">{{ section.settings.customers_label }}</p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trust Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "reviews_count",
+      "label": "Reviews Count",
+      "default": "150K+"
+    },
+    {
+      "type": "text",
+      "id": "reviews_label",
+      "label": "Reviews Label",
+      "default": "Reviews"
+    },
+    {
+      "type": "text",
+      "id": "customers_heading",
+      "label": "Customers Heading",
+      "default": "Trusted By"
+    },
+    {
+      "type": "text",
+      "id": "customers_count",
+      "label": "Customers Count",
+      "default": "4M+"
+    },
+    {
+      "type": "text",
+      "id": "customers_label",
+      "label": "Customers Label",
+      "default": "Customers"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust Banner"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,431 @@
+{% comment %}
+  Creator Profile Section
+  Displays creator bio with connected image and content layout
+{% endcomment %}
+
+<style>
+  .creator-profile {
+    background-color: {{ section.settings.background_color }};
+    padding: 60px 20px;
+    position: relative;
+  }
+
+  .creator-profile-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 0;
+    align-items: start;
+    position: relative;
+  }
+
+  .creator-image-wrapper {
+    position: relative;
+    margin-right: 19px;
+    border: 1px solid {{ section.settings.border_color }};
+    background-color: {{ section.settings.image_bg_color }};
+    z-index: 1;
+  }
+
+  .creator-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .creator-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: -20px;
+    padding-top: 36px;
+  }
+
+  .creator-name-header {
+    background: linear-gradient(135deg, {{ section.settings.header_bg_start }} 0%, {{ section.settings.header_bg_end }} 100%);
+    padding: 20px 40px;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .creator-name {
+    font-size: 48px;
+    font-weight: 400;
+    color: {{ section.settings.header_text_color }};
+    margin: 0;
+    font-family: 'Averia Serif Libre', var(--font-heading-family), serif;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+
+  .creator-bio {
+    background-color: {{ section.settings.content_bg_color }};
+    padding: 40px;
+    color: {{ section.settings.text_color }};
+    flex-grow: 1;
+    z-index: 1;
+  }
+
+  .creator-bio > div {
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+    color: {{ section.settings.text_color }};
+  }
+
+  .creator-bio > div:last-of-type {
+    margin-bottom: 30px;
+  }
+
+  .creator-bio p {
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: center;
+    color: {{ section.settings.text_color }};
+  }
+
+  .creator-additional-content {
+    max-width: 1200px;
+    margin: 20px auto 0;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .creator-additional-content > div {
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+    color: {{ section.settings.text_color }};
+  }
+
+  .creator-additional-content > div:last-of-type {
+    margin-bottom: 30px;
+  }
+
+  .creator-additional-content p {
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: center;
+    color: {{ section.settings.text_color }};
+  }
+
+  .creator-cta {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .creator-cta-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 35px;
+    background: linear-gradient(135deg, {{ section.settings.button_bg_start }} 0%, {{ section.settings.button_bg_end }} 100%);
+    color: {{ section.settings.button_text_color }};
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .creator-cta-btn::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border: 1px solid {{ section.settings.button_border_color }};
+    pointer-events: none;
+  }
+
+  .creator-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(201, 169, 110, 0.3);
+  }
+
+  .creator-cta-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: {{ section.settings.button_text_color }};
+    transition: transform 0.3s ease;
+  }
+
+  .creator-cta-btn:hover svg {
+    transform: translateX(5px);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 968px) {
+    .creator-profile-container {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .creator-content {
+      margin-left: 0;
+      margin-top: -20px;
+    }
+
+    .creator-name {
+      font-size: 36px;
+    }
+
+    .creator-name-header {
+      padding: 15px 30px;
+    }
+
+    .creator-bio {
+      padding: 30px 20px 0;
+    }
+
+    .creator-additional-content {
+      padding: 0 20px;
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .creator-name {
+      font-size: 28px;
+    }
+
+    .creator-bio p,
+    .creator-bio > div,
+    .creator-additional-content p,
+    .creator-additional-content > div {
+      font-size: 13px;
+    }
+
+    .creator-cta-btn {
+      padding: 12px 25px;
+      font-size: 12px;
+    }
+
+    .creator-additional-content {
+      padding: 0 15px;
+    }
+  }
+</style>
+
+<section class="creator-profile">
+  <div class="creator-profile-container">
+    {%- comment -%} Left Side - Creator Image {%- endcomment -%}
+    <div class="creator-image-wrapper">
+      {%- if section.settings.creator_image != blank -%}
+        <img src="{{ section.settings.creator_image | img_url: '600x' }}"
+             alt="{{ section.settings.creator_name | escape }}"
+             loading="lazy">
+      {%- else -%}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Right Side - Content {%- endcomment -%}
+    <div class="creator-content">
+      {%- if section.settings.creator_name != blank -%}
+        <div class="creator-name-header">
+          <h2 class="creator-name">{{ section.settings.creator_name }}</h2>
+        </div>
+      {%- endif -%}
+
+      <div class="creator-bio">
+        {%- if section.settings.bio_paragraph_1 != blank -%}
+          <div>{{ section.settings.bio_paragraph_1 }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.bio_paragraph_2 != blank -%}
+          <div>{{ section.settings.bio_paragraph_2 }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} Additional Content Section Below {%- endcomment -%}
+  <div class="creator-additional-content">
+    {%- if section.settings.bio_paragraph_3 != blank -%}
+      <div>{{ section.settings.bio_paragraph_3 }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.bio_paragraph_4 != blank -%}
+      <div>{{ section.settings.bio_paragraph_4 }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.button_text != blank -%}
+      <div class="creator-cta">
+        <a href="{{ section.settings.button_link | default: '#' }}" class="creator-cta-btn">
+          {{ section.settings.button_text }}
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6-1.41 1.41zM11.59 7.41L16.18 12l-4.59 4.59L13 18l6-6-6-6-1.41 1.41z"/>
+          </svg>
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Creator Profile",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Creator Information"
+    },
+    {
+      "type": "image_picker",
+      "id": "creator_image",
+      "label": "Creator Image"
+    },
+    {
+      "type": "text",
+      "id": "creator_name",
+      "label": "Creator Name",
+      "default": "Creator Name"
+    },
+    {
+      "type": "header",
+      "content": "Biography"
+    },
+    {
+      "type": "richtext",
+      "id": "bio_paragraph_1",
+      "label": "First Paragraph",
+      "default": "<p>Brief introduction about the creator and their focus.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "bio_paragraph_2",
+      "label": "Second Paragraph",
+      "default": "<p>More details about their work and approach.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "bio_paragraph_3",
+      "label": "Third Paragraph",
+      "default": "<p>Additional information about their background.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "bio_paragraph_4",
+      "label": "Fourth Paragraph",
+      "default": "<p>Final thoughts or goals.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "View Our Products"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Color Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Image Border Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "image_bg_color",
+      "label": "Image Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "header_bg_start",
+      "label": "Name Header Background (Start)",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "header_bg_end",
+      "label": "Name Header Background (End)",
+      "default": "#d4af37"
+    },
+    {
+      "type": "color",
+      "id": "header_text_color",
+      "label": "Name Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "content_bg_color",
+      "label": "Content Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_start",
+      "label": "Button Background (Start)",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_end",
+      "label": "Button Background (End)",
+      "default": "#d4af37"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button Border Color",
+      "default": "#c9a96e"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Creator Profile",
+      "settings": {
+        "creator_name": "Thomas Sealey",
+        "bio_paragraph_1": "<p>Thomas Sealey is a magic creator with a growing focus on everyday carry (EDC) design. His aim: to create objects designed to live naturally in the real world while quietly enabling moments of impossibility.</p>",
+        "bio_paragraph_2": "<p>Drawn to the challenge of making magic feel unforced and organic, his work centres on adapting familiar, everyday objects so they can facilitate genuine magical moments without ever feeling like props. Over the past three years, Thomas has released eight professional products, each shaped by a consistent philosophy: practical design, reliable workmanship, and tools that working performers would genuinely want to carry and use.</p>",
+        "bio_paragraph_3": "<p>By trade, Thomas is a designer and has a background that informs much of his approach to magic creation. The blend of problem-solving, precision, and artistic sensitivity required of clinical work carries directly into his designs—where small details, efficiency, and reliability matter as much as the effect itself.</p>",
+        "bio_paragraph_4": "<p>Still very much an early-stage creator, Thomas approaches magic with curiosity rather than certainty. He has collaborated with and advised professional magicians on a number of releases, learning from those with far more experience while steadily refining his own voice and design language. Rather than chasing novelty for its own sake, his goal is simple: to contribute thoughtful, well-made tools to the magic community—objects that feel ordinary in the hand, yet allow extraordinary moments to unfold.</p>",
+        "button_text": "View Our Products"
+      }
+    }
+  ]
+}
+{% endschema %}

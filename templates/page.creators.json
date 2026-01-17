@@ -1,0 +1,144 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "creator_profile_q3EVeX": {
+      "type": "creator-profile",
+      "name": "Creator Profile",
+      "settings": {
+        "creator_image": "shopify://shop_images/Frame_2147226683.png",
+        "creator_name": "Thomas Sealey",
+        "bio_paragraph_1": "<p>Thomas Sealey is a magic creator with a growing focus on everyday carry (EDC) design. His aim: to create objects designed to live naturally in the real world while quietly enabling moments of impossibility.</p>",
+        "bio_paragraph_2": "<p>Drawn to the challenge of making magic feel unforced and organic, his work centres on adapting familiar, everyday objects so they can facilitate genuine magical moments without ever feeling like props. Over the past three years, Thomas has released eight professional products, each shaped by a consistent philosophy: practical design, reliable workmanship, and tools that working performers would genuinely want to carry and use.</p><p></p><p>By trade, Thomas is a designer and has a background that informs much of his approach to magic creation. The blend of problem-solving, precision, and artistic sensitivity required of clinical work carries directly into his designs—where small details, efficiency, and reliability matter as much as the effect itself.</p>",
+        "bio_paragraph_3": "",
+        "bio_paragraph_4": "<p>Still very much an early-stage creator, Thomas approaches magic with curiosity rather than certainty. He has collaborated with and advised professional magicians on a number of releases, learning from those with far more experience while steadily refining his own voice and design language. Rather than chasing novelty for its own sake, his goal is simple: to contribute thoughtful, well-made tools to the magic community—objects that feel ordinary in the hand, yet allow extraordinary moments to unfold.</p>",
+        "button_text": "View Our Products",
+        "button_link": "",
+        "background_color": "#000000",
+        "border_color": "#333333",
+        "image_bg_color": "#000000",
+        "header_bg_start": "#c9a96e",
+        "header_bg_end": "#d4af37",
+        "header_text_color": "#000000",
+        "content_bg_color": "#000000",
+        "text_color": "#ffffff",
+        "button_bg_start": "#c9a96e",
+        "button_bg_end": "#d4af37",
+        "button_text_color": "#000000",
+        "button_border_color": "#c9a96e"
+      }
+    },
+    "testimonials_custom_RDxFib": {
+      "type": "testimonials-custom",
+      "blocks": {
+        "testimonial_3cryeX": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Excellent !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "Lorem Ipsum",
+            "author_role": "Customer"
+          }
+        },
+        "testimonial_BRLaHg": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Very Nice Quality !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "Emelie Thomson",
+            "author_role": "Customer"
+          }
+        },
+        "testimonial_ryFyYP": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Love It !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "John Mans",
+            "author_role": "Customer"
+          }
+        },
+        "testimonial_4fGhLN": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Love It !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "John Mans",
+            "author_role": "Customer"
+          }
+        },
+        "testimonial_hQcnM3": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Love It !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "John Mans",
+            "author_role": "Customer"
+          }
+        },
+        "testimonial_icDzqB": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Love It !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "John Mans",
+            "author_role": "Customer"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_3cryeX",
+        "testimonial_BRLaHg",
+        "testimonial_ryFyYP",
+        "testimonial_4fGhLN",
+        "testimonial_hQcnM3",
+        "testimonial_icDzqB"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "section_title": "Happy Clients",
+        "section_subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "background_color": "#3a3a3a",
+        "title_color": "#c9a96e",
+        "text_color": "#ffffff",
+        "card_bg_color": "#000000",
+        "card_border_color": "#c9a96e",
+        "star_color": "#FFD700",
+        "star_bg_color": "#2a2a2a",
+        "button_bg_color": "#c9a96e",
+        "button_text_color": "#000000",
+        "button_border_color": "#c9a96e",
+        "button_hover_bg": "#d4b57a",
+        "button_hover_text_color": "#000000",
+        "use_custom_prev_icon": false,
+        "use_custom_next_icon": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "creator_profile_q3EVeX",
+    "testimonials_custom_RDxFib"
+  ]
+}

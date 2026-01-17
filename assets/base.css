@@ -1,8 +1,8 @@
 /* Custom Fonts */
 @font-face {
   font-family: 'Cactus Classical Serif';
-  src: url('https://cdn.shopify.com/s/files/1/0974/6264/9215/files/cactus-classical-serif-0-400-normal.woff2?v=1768321303') format('woff2');
-  font-weight: 400;
+  src: url('https://cdn.shopify.com/s/files/1/0974/6264/9215/files/cactus-classical-serif-0-400-normal.ttf?v=1768581038') format('woff2');
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
@@ -258,7 +258,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 body,
 p,
 .text-body {
-  font-family: 'Cactus Classical Serif', var(--font-body-family), serif;
+  font-family: 'Cactus Classical Serif';
   font-size: 1.5rem;
   letter-spacing: 0.06rem;
   line-height: calc(1 + 0.8 / var(--font-body-scale));
@@ -278,7 +278,7 @@ h6,
 .h3,
 .h4,
 .h5 {
-  font-family: 'Averia Serif Libre', var(--font-heading-family), serif;
+  font-family: 'Averia Serif Libre';
   font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
   letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
@@ -351,7 +351,7 @@ h3,
 
 h4,
 .h4 {
-  font-family: 'Averia Serif Libre', var(--font-heading-family), serif;
+  font-family: 'Averia Serif Libre';
   font-style: var(--font-heading-style);
   font-size: calc(var(--font-heading-scale) * 1.5rem);
 }
@@ -1591,7 +1591,7 @@ details[open] > .share-button__fallback {
   appearance: none;
   background-color: rgb(var(--color-background));
   color: rgb(var(--color-foreground));
-  font-family: 'Cactus Classical Serif', var(--font-body-family), serif;
+  font-family: 'Cactus Classical Serif';
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
   font-size: 1.6rem;
@@ -1644,7 +1644,7 @@ details[open] > .share-button__fallback {
 }
 
 .select__select {
-  font-family: 'Cactus Classical Serif', var(--font-body-family), serif;
+  font-family: 'Cactus Classical Serif';
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
   font-size: 1.2rem;
@@ -1819,7 +1819,7 @@ details[open] > .share-button__fallback {
 /* Text area */
 
 .text-area {
-  font-family: 'Cactus Classical Serif', var(--font-body-family), serif;
+  font-family: 'Cactus Classical Serif';
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
   min-height: 10rem;
@@ -1935,7 +1935,7 @@ input[type='checkbox'] {
 
 .quantity__input {
   color: currentColor;
-  font-family: 'Cactus Classical Serif', var(--font-body-family), serif;
+  font-family: 'Cactus Classical Serif';
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
   font-size: 1.6rem;

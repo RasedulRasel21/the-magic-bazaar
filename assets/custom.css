@@ -1,0 +1,29 @@
+.header_bg:after{
+    content: '';
+    background-color: rgba(40, 38, 39, 1);
+    height: 83px;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    right: 0;
+    top: 60px;
+}
+.header {
+    z-index: 1111;
+    position: relative;
+}
+.header--middle-left {
+    grid-template-columns: 1fr auto 1fr !important;
+}
+.header__active-menu-item{
+    text-decoration: none !important;
+    color: rgba(182, 141, 79, 1);
+}
+.header__menu-item:hover span {
+    text-decoration: none !important;
+    color: rgba(182, 141, 79, 1);
+}
+.header__icon--cart .icon{
+    max-width: 26px;
+}

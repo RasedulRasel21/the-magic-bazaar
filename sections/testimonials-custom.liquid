@@ -1,0 +1,576 @@
+{% comment %}
+  Testimonials Section
+  Displays customer reviews with carousel navigation
+{% endcomment %}
+
+<style>
+  .testimonials-section {
+    background-color: {{ section.settings.background_color }};
+    padding: 80px 20px;
+  }
+
+  .testimonials-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .testimonials-title {
+    font-size: 48px;
+    font-weight: 400;
+    color: {{ section.settings.title_color }};
+    margin: 0 0 15px 0;
+  }
+
+  .testimonials-subtitle {
+    font-size: 16px;
+    line-height: 1.6;
+    color: {{ section.settings.text_color }};
+    max-width: 900px;
+    margin: 0 auto 50px;
+  }
+
+  .testimonials-carousel {
+    position: relative;
+    overflow: hidden;
+    padding: 0 0 60px 0;
+  }
+
+  .testimonials-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  .testimonial-card {
+    background-color: {{ section.settings.card_bg_color }};
+    border: 2px solid {{ section.settings.card_border_color }};
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+  }
+
+  .stars {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+
+  .star {
+    color: {{ section.settings.star_color }};
+    font-size: 20px;
+    background-color: {{ section.settings.star_bg_color }};
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .testimonial-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: {{ section.settings.text_color }};
+    margin: 0 0 15px 0;
+  }
+
+  .testimonial-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: {{ section.settings.text_color }};
+    text-align: justify;
+    margin-bottom: 25px;
+    flex-grow: 1;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: auto;
+  }
+
+  .author-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid {{ section.settings.card_border_color }};
+  }
+
+  .author-image-placeholder {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: {{ section.settings.card_border_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: {{ section.settings.text_color }};
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .author-info h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: {{ section.settings.text_color }};
+    margin: 0 0 3px 0;
+  }
+
+  .author-info p {
+    font-size: 13px;
+    color: {{ section.settings.text_color }};
+    opacity: 0.7;
+    margin: 0;
+  }
+
+  .carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  .carousel-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid {{ section.settings.button_border_color }};
+    background-color: transparent;
+    color: {{ section.settings.button_text_color }};
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 0;
+  }
+
+  .carousel-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: {{ section.settings.button_text_color }};
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.3s ease;
+  }
+
+  .carousel-btn img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+
+  .carousel-btn:hover {
+    background-color: {{ section.settings.button_bg_color }};
+    transform: scale(1.05);
+  }
+
+  .carousel-btn:hover svg {
+    stroke: {{ section.settings.button_hover_text_color }};
+  }
+
+  .carousel-btn:active {
+    transform: scale(0.95);
+  }
+
+  .carousel-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .carousel-btn:disabled:hover {
+    background-color: transparent;
+    transform: scale(1);
+  }
+
+  .carousel-btn:disabled:hover svg {
+    stroke: {{ section.settings.button_text_color }};
+  }
+
+  .carousel-btn:last-child {
+    background-color: {{ section.settings.button_bg_color }};
+  }
+
+  .carousel-btn:last-child:hover {
+    background-color: {{ section.settings.button_hover_bg }};
+  }
+
+  @media (max-width: 1200px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .testimonials-title {
+      font-size: 36px;
+    }
+
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .testimonials-title {
+      font-size: 28px;
+    }
+    
+    .testimonial-card {
+      padding: 25px 20px;
+    }
+
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+    }
+
+    .carousel-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+</style>
+
+<div class="testimonials-section">
+  <div class="testimonials-container">
+    <div class="testimonials-header">
+      <h2 class="testimonials-title">{{ section.settings.section_title }}</h2>
+      {% if section.settings.section_subtitle != blank %}
+        <p class="testimonials-subtitle">{{ section.settings.section_subtitle }}</p>
+      {% endif %}
+    </div>
+
+    <div class="testimonials-carousel" id="testimonials-carousel-{{ section.id }}">
+      <div class="testimonials-wrapper" id="testimonials-wrapper-{{ section.id }}">
+        {% assign total_blocks = section.blocks.size %}
+        {% assign pages = total_blocks | divided_by: 3.0 | ceil %}
+        
+        {% for page in (0..pages) %}
+          {% assign start_index = page | times: 3 %}
+          {% assign end_index = start_index | plus: 2 %}
+          
+          <div class="testimonials-grid">
+            {% for i in (start_index..end_index) %}
+              {% if i < total_blocks %}
+                {% assign block = section.blocks[i] %}
+                <div class="testimonial-card" {{ block.shopify_attributes }}>
+                  <div class="stars">
+                    {% for star in (1..block.settings.rating) %}
+                      <span class="star">★</span>
+                    {% endfor %}
+                  </div>
+                  
+                  <h3 class="testimonial-title">{{ block.settings.testimonial_title }}</h3>
+                  <p class="testimonial-text">{{ block.settings.testimonial_text }}</p>
+                  
+                  <div class="testimonial-author">
+                    {% if block.settings.author_image != blank %}
+                      <img src="{{ block.settings.author_image | img_url: '100x100', crop: 'center' }}" 
+                           alt="{{ block.settings.author_name }}"
+                           class="author-image"
+                           loading="lazy">
+                    {% else %}
+                      <div class="author-image-placeholder">
+                        {{ block.settings.author_name | slice: 0 }}
+                      </div>
+                    {% endif %}
+                    
+                    <div class="author-info">
+                      <h4>{{ block.settings.author_name }}</h4>
+                      <p>{{ block.settings.author_role }}</p>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if pages > 0 %}
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="prev-btn-{{ section.id }}" aria-label="Previous testimonials">
+          {% if section.settings.use_custom_prev_icon and section.settings.prev_icon_image != blank %}
+            <img src="{{ section.settings.prev_icon_image | img_url: '50x50' }}" 
+                 alt="Previous"
+                 loading="lazy">
+          {% else %}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          {% endif %}
+        </button>
+        <button class="carousel-btn" id="next-btn-{{ section.id }}" aria-label="Next testimonials">
+          {% if section.settings.use_custom_next_icon and section.settings.next_icon_image != blank %}
+            <img src="{{ section.settings.next_icon_image | img_url: '50x50' }}" 
+                 alt="Next"
+                 loading="lazy">
+          {% else %}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          {% endif %}
+        </button>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  (function() {
+    const wrapper = document.getElementById('testimonials-wrapper-{{ section.id }}');
+    const prevBtn = document.getElementById('prev-btn-{{ section.id }}');
+    const nextBtn = document.getElementById('next-btn-{{ section.id }}');
+    
+    if (!wrapper || !prevBtn || !nextBtn) return;
+    
+    let currentPage = 0;
+    const totalPages = {{ pages }};
+    
+    function updateCarousel() {
+      wrapper.style.transform = `translateX(-${currentPage * 100}%)`;
+      prevBtn.disabled = currentPage === 0;
+      nextBtn.disabled = currentPage === totalPages;
+    }
+    
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 0) {
+        currentPage--;
+        updateCarousel();
+      }
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        updateCarousel();
+      }
+    });
+    
+    updateCarousel();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Happy Clients"
+    },
+    {
+      "type": "textarea",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#3a3a3a"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card Border Color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star Color",
+      "default": "#FFD700"
+    },
+    {
+      "type": "color",
+      "id": "star_bg_color",
+      "label": "Star Background Color",
+      "default": "#2a2a2a"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button Border Color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg",
+      "label": "Button Hover Background",
+      "default": "#d4b57a"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Button Hover Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Navigation Icons"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_prev_icon",
+      "label": "Use Custom Previous Icon",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "prev_icon_image",
+      "label": "Previous Icon Image",
+      "info": "Upload custom icon (recommended: 50x50px)"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_next_icon",
+      "label": "Use Custom Next Icon",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "next_icon_image",
+      "label": "Next Icon Image",
+      "info": "Upload custom icon (recommended: 50x50px)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Star Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "testimonial_title",
+          "label": "Testimonial Title",
+          "default": "Excellent !!"
+        },
+        {
+          "type": "textarea",
+          "id": "testimonial_text",
+          "label": "Testimonial Text",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "type": "image_picker",
+          "id": "author_image",
+          "label": "Author Image"
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author Name",
+          "default": "Lorem Ipsum"
+        },
+        {
+          "type": "text",
+          "id": "author_role",
+          "label": "Author Role",
+          "default": "Customer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Excellent !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "Lorem Ipsum",
+            "author_role": "Customer"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Very Nice Quality !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "Emelie Thomson",
+            "author_role": "Customer"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Love It !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "John Mans",
+            "author_role": "Customer"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

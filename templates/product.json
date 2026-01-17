@@ -12,13 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {}
@@ -27,12 +20,9 @@
           "type": "price",
           "settings": {}
         },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
+        "description": {
+          "type": "description",
+          "settings": {}
         },
         "quantity_selector": {
           "type": "quantity_selector",
@@ -41,35 +31,22 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
           }
         }
       },
       "block_order": [
-        "vendor",
         "title",
         "price",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
         "description",
-        "share"
+        "quantity_selector",
+        "buy_buttons"
       ],
       "settings": {
         "enable_sticky_info": true,
-        "color_scheme": "scheme-1",
-        "media_size": "large",
+        "color_scheme": "scheme-3",
+        "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "stacked",
@@ -82,8 +59,151 @@
         "padding_bottom": 12
       }
     },
+    "products_showcase_kcVpnN": {
+      "type": "products-showcase",
+      "name": "Products Showcase",
+      "settings": {
+        "section_title": "Related PRODUCTS",
+        "title_align": "center",
+        "collection": "marketplace",
+        "products_to_show": 2,
+        "show_view_all_button": false,
+        "view_all_text": "VIEW ALL PRODUCTS",
+        "view_all_use_custom_icon": true,
+        "view_all_icon_image": "shopify://shop_images/Frame.png",
+        "button_text": "BUY NOW",
+        "use_custom_icon": false,
+        "background_color": "#0a0a0a",
+        "title_color": "#c9a96e",
+        "text_color": "#ffffff",
+        "card_bg_color": "#000000",
+        "card_border_color": "#333333",
+        "button_bg_color": "#c9a96e",
+        "button_text_color": "#000000",
+        "button_border_color": "#c9a96e",
+        "button_hover_bg": "#d4b57a",
+        "button_hover_text_color": "#000000"
+      }
+    },
+    "testimonials_custom_EJaFF8": {
+      "type": "testimonials-custom",
+      "blocks": {
+        "testimonial_dVnMpd": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Excellent !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "Lorem Ipsum",
+            "author_role": "Customer"
+          }
+        },
+        "testimonial_j9WmD3": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Very Nice Quality !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "Emelie Thomson",
+            "author_role": "Customer"
+          }
+        },
+        "testimonial_LUznjQ": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Love It !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "John Mans",
+            "author_role": "Customer"
+          }
+        },
+        "testimonial_HXweTX": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Excellent !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "Lorem Ipsum",
+            "author_role": "Customer"
+          }
+        },
+        "testimonial_Q9aa6t": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Very Nice Quality !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "Emelie Thomson",
+            "author_role": "Customer"
+          }
+        },
+        "testimonial_MzHxhA": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Love It !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "John Mans",
+            "author_role": "Customer"
+          }
+        },
+        "testimonial_NAeQNw": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Very Nice Quality !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "Emelie Thomson",
+            "author_role": "Customer"
+          }
+        },
+        "testimonial_gkDmKM": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Excellent !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "Lorem Ipsum",
+            "author_role": "Customer"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_dVnMpd",
+        "testimonial_j9WmD3",
+        "testimonial_LUznjQ",
+        "testimonial_HXweTX",
+        "testimonial_Q9aa6t",
+        "testimonial_MzHxhA",
+        "testimonial_NAeQNw",
+        "testimonial_gkDmKM"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "section_title": "Happy Clients",
+        "section_subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "background_color": "#3a3a3a",
+        "title_color": "#c9a96e",
+        "text_color": "#ffffff",
+        "card_bg_color": "#000000",
+        "card_border_color": "#c9a96e",
+        "star_color": "#ffd700",
+        "star_bg_color": "#2a2a2a",
+        "button_bg_color": "#c9a96e",
+        "button_text_color": "#000000",
+        "button_border_color": "#c9a96e",
+        "button_hover_bg": "#d4b57a",
+        "button_hover_text_color": "#000000",
+        "use_custom_prev_icon": true,
+        "prev_icon_image": "shopify://shop_images/Icon_2.png",
+        "use_custom_next_icon": true,
+        "next_icon_image": "shopify://shop_images/Icon_3.png"
+      }
+    },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
@@ -103,6 +223,8 @@
   },
   "order": [
     "main",
+    "products_showcase_kcVpnN",
+    "testimonials_custom_EJaFF8",
     "related-products"
   ]
 }

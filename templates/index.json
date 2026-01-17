@@ -9,62 +9,77 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "image_with_text_slider_z7iG3L": {
+      "type": "image-with-text-slider",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "slide_EGMM4j": {
+          "type": "slide",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "image": "shopify://shop_images/image_4.png"
           }
         },
-        "button": {
-          "type": "buttons",
+        "slide_iyLPMX": {
+          "type": "slide",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "image": "shopify://shop_images/image_4.png"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "slide_EGMM4j",
+        "slide_iyLPMX"
       ],
+      "custom_css": [
+        ".image-with-text__heading {margin-top: 0 !important; margin-bottom: 0 !important; padding-top: 0 !important; color: #d0a25a;}",
+        ".image-with-text-slider .image-with-text__text--caption {text-transform: capitalize; margin-bottom: 0; color: #fff; font-family: \"Averia Serif Libre\", var(--font-heading-family), serif;}",
+        ".image-with-text__text {margin-top: 0 !important;}",
+        ".image-with-text__text p {font-size: 22px; color: #fff;}",
+        ".image-with-text__buttons a:after {box-shadow: unset !important;}"
+      ],
+      "name": "Image with Text Slider",
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
+        "caption": "Welcome To",
+        "heading": "MAGIC BAZAAR",
+        "heading_size": "h1",
+        "text": "<p>Where Creators Sell Directly To Magicians</p>",
+        "button_label": "BUY NOW",
+        "button_link": "shopify://collections",
+        "button_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"39\" height=\"39\" viewbox=\"0 0 39 39\" fill=\"none\">\n<g clip-path=\"url(#clip0_27_204)\">\n<path d=\"M11.31 35.0268C11.31 37.2206 13.0894 39 15.2832 39C17.4769 39 19.2562 37.2206 19.2562 35.0268C19.2562 32.8331 17.4769 31.0537 15.2832 31.0537C13.0894 31.0537 11.31 32.8331 11.31 35.0268ZM16.6604 35.0268C16.6604 35.7825 16.0388 36.404 15.2832 36.404C14.5276 36.404 13.906 35.7825 13.906 35.0268C13.906 34.2712 14.5276 33.6497 15.2832 33.6497C16.0388 33.6497 16.6604 34.2712 16.6604 35.0268Z\" fill=\"black\"></path>\n<path d=\"M26.3616 35.0268C26.3616 37.2206 28.141 39 30.3347 39C32.5162 39 34.3078 37.2206 34.3078 35.0268C34.3078 32.8331 32.5162 31.0537 30.3347 31.0537C28.141 31.0537 26.3616 32.8331 26.3616 35.0268ZM31.6997 35.0268C31.6997 35.7825 31.0903 36.404 30.3347 36.404C29.5669 36.404 28.9575 35.7825 28.9575 35.0268C28.9575 34.2712 29.5669 33.6497 30.3347 33.6497C31.0903 33.6497 31.6997 34.2712 31.6997 35.0268Z\" fill=\"black\"></path>\n<path d=\"M1.73067 2.59594H5.78906L10.5787 26.0081C11.0053 28.1044 12.8578 29.6278 15.0028 29.6278H31.3341C33.4669 29.6278 35.3315 28.1044 35.7581 26.0081L38.4759 12.7237C38.744 11.3953 38.4028 10.0181 37.5497 8.96998C36.6843 7.90968 35.4047 7.3125 34.0397 7.3125H9.40878L8.12911 1.03591C8.0072 0.438738 7.47094 0 6.84937 0H1.73067C1.02378 0 0.438736 0.584976 0.438736 1.30407C0.438736 2.02309 1.02378 2.59594 1.73067 2.59594ZM17.3916 21.974V14.954C17.3916 14.235 17.9644 13.6621 18.6835 13.6621C19.4026 13.6621 19.9875 14.235 19.9875 14.954V21.974C19.9875 22.6931 19.4026 23.2781 18.6835 23.2781C17.9644 23.2781 17.3916 22.6931 17.3916 21.974ZM28.2263 21.974C28.2263 22.6931 27.6412 23.2781 26.9222 23.2781C26.2031 23.2781 25.6181 22.6931 25.6181 21.974V14.954C25.6181 14.235 26.2031 13.6621 26.9222 13.6621C27.6412 13.6621 28.2263 14.235 28.2263 14.954V21.974Z\" fill=\"black\"></path>\n</g>\n<defs>\n<clippath id=\"clip0_27_204\">\n<rect width=\"39\" height=\"39\" fill=\"white\"></rect>\n</clippath>\n</defs>\n</svg>",
+        "button_style_secondary": false,
+        "button_label_2": "READ ABOUT CREATOR",
+        "button_link_2": "shopify://collections",
+        "button_icon_2": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"31\" height=\"31\" viewbox=\"0 0 31 31\" fill=\"none\">\n<path d=\"M14.0499 24.2307C13.9648 24.3158 13.9391 24.4424 13.9846 24.5552C14.0302 24.666 14.139 24.7372 14.2596 24.7372H21.3985C21.4777 24.7372 21.5529 24.7056 21.6103 24.6502L30.5497 15.7107C30.6051 15.6553 30.6367 15.5782 30.6367 15.501C30.6367 15.4219 30.6051 15.3467 30.5497 15.2913L21.6102 6.34988C21.5528 6.29448 21.4777 6.26282 21.3985 6.26282H14.2596C14.1389 6.26282 14.03 6.33602 13.9846 6.44682C13.939 6.55762 13.9648 6.68422 14.0498 6.76935L22.7796 15.501L14.0499 24.2307Z\" fill=\"url(#paint0_linear_27_222)\"></path>\n<path d=\"M0.450781 6.76935L9.18049 15.501L0.450781 24.2307C0.365713 24.3158 0.339981 24.4424 0.385511 24.5552C0.43298 24.666 0.539845 24.7372 0.660515 24.7372H7.80141C7.87855 24.7372 7.95575 24.7056 8.01115 24.6502L16.9506 15.7107C17.006 15.6553 17.0377 15.5781 17.0377 15.501C17.0377 15.4219 17.006 15.3467 16.9506 15.2913L8.01115 6.34988C7.95575 6.29448 7.87855 6.26282 7.80141 6.26282H0.660515C0.539845 6.26282 0.43298 6.33602 0.385511 6.44682C0.339981 6.55762 0.365713 6.68422 0.450781 6.76935Z\" fill=\"url(#paint1_linear_27_222)\"></path>\n<defs>\n<lineargradient id=\"paint0_linear_27_222\" x1=\"22.2995\" y1=\"6.26282\" x2=\"22.2995\" y2=\"24.7372\" gradientunits=\"userSpaceOnUse\">\n<stop stop-color=\"#D0A25A\"></stop>\n<stop offset=\"1\" stop-color=\"#B68D4F\"></stop>\n</lineargradient>\n<lineargradient id=\"paint1_linear_27_222\" x1=\"8.70047\" y1=\"6.26282\" x2=\"8.70047\" y2=\"24.7372\" gradientunits=\"userSpaceOnUse\">\n<stop stop-color=\"#D0A25A\"></stop>\n<stop offset=\"1\" stop-color=\"#B68D4F\"></stop>\n</lineargradient>\n</defs>\n</svg>",
+        "button_style_secondary_2": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-3",
         "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "featured_collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
+        "collection": "all",
+        "products_to_show": 8,
         "title": "Featured products",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
+        "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -72,13 +87,271 @@
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
+        "swipe_on_mobile": false,
         "padding_top": 44,
         "padding_bottom": 36
+      }
+    },
+    "products_showcase_QzQaJQ": {
+      "type": "products-showcase",
+      "name": "Products Showcase",
+      "settings": {
+        "section_title": "OUR PRODUCTS",
+        "title_align": "left",
+        "collection": "marketplace",
+        "products_to_show": 2,
+        "show_view_all_button": true,
+        "view_all_text": "VIEW ALL PRODUCTS",
+        "view_all_use_custom_icon": true,
+        "view_all_icon_image": "shopify://shop_images/Frame.png",
+        "button_text": "BUY NOW",
+        "use_custom_icon": false,
+        "background_color": "#0a0a0a",
+        "title_color": "#c9a96e",
+        "text_color": "#ffffff",
+        "card_bg_color": "#000000",
+        "card_border_color": "#333333",
+        "button_bg_color": "#c9a96e",
+        "button_text_color": "#000000",
+        "button_border_color": "#c9a96e",
+        "button_hover_bg": "#d4b57a",
+        "button_hover_text_color": "#000000"
+      }
+    },
+    "trust_banner_bUFTpC": {
+      "type": "trust-banner",
+      "name": "Trust Banner",
+      "settings": {
+        "reviews_count": "150K+",
+        "reviews_label": "Reviews",
+        "customers_heading": "Trusted By",
+        "customers_count": "4M+",
+        "customers_label": "Customers"
+      }
+    },
+    "meet_the_creator_GHWqAX": {
+      "type": "meet-the-creator",
+      "name": "Meet The Creator",
+      "settings": {
+        "subtitle": "Meet The Creator",
+        "creator_name": "Thomas Sealey",
+        "bio_paragraph_1": "Thomas Sealey is a magic creator with a growing focus on everyday carry (EDC) items—objects designed to live naturally in the real world while quietly enabling moments of impossibility.",
+        "bio_paragraph_2": "Drawn to the challenge of making magic feel unforced and organic, his work centres on adapting familiar, everyday objects into ingenious tools—things that feel right to carry and never acting like props. Over the past three years, Thomas has released eight professional products, each shaped by a consistent philosophy: practical design, honest pricing, and tools that working performers would genuinely want to carry and use.",
+        "creator_image": "shopify://shop_images/Frame_2147226683.png",
+        "button_text": "VIEW PROFILE",
+        "button_url": "shopify://collections/all",
+        "use_custom_button_icon": true,
+        "button_icon_image": "shopify://shop_images/Frame.png",
+        "background_color": "#0a0a0a",
+        "subtitle_color": "#c9a96e",
+        "title_color": "#c9a96e",
+        "text_color": "#ffffff",
+        "image_border_color": "#c9a96e",
+        "image_bg_color": "#000000",
+        "button_bg_color": "#c9a96e",
+        "button_text_color": "#000000",
+        "button_border_color": "#c9a96e",
+        "button_hover_bg": "#d4b57a",
+        "button_hover_text_color": "#000000"
+      }
+    },
+    "testimonials_custom_wewhM6": {
+      "type": "testimonials-custom",
+      "blocks": {
+        "testimonial_AnxRzC": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Excellent !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "Lorem Ipsum",
+            "author_role": "Customer"
+          }
+        },
+        "testimonial_pjpUFt": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Very Nice Quality !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "Emelie Thomson",
+            "author_role": "Customer"
+          }
+        },
+        "testimonial_gdNFRG": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Love It !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "John Mans",
+            "author_role": "Customer"
+          }
+        },
+        "testimonial_6nU8bB": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Excellent !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "Lorem Ipsum",
+            "author_role": "Customer"
+          }
+        },
+        "testimonial_NCQy7e": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Very Nice Quality !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "Emelie Thomson",
+            "author_role": "Customer"
+          }
+        },
+        "testimonial_mm9VK6": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Love It !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "John Mans",
+            "author_role": "Customer"
+          }
+        },
+        "testimonial_FLLFnj": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Very Nice Quality !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "Emelie Thomson",
+            "author_role": "Customer"
+          }
+        },
+        "testimonial_rqAHiq": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "testimonial_title": "Excellent !!",
+            "testimonial_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "author_name": "Lorem Ipsum",
+            "author_role": "Customer"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_AnxRzC",
+        "testimonial_pjpUFt",
+        "testimonial_gdNFRG",
+        "testimonial_6nU8bB",
+        "testimonial_NCQy7e",
+        "testimonial_mm9VK6",
+        "testimonial_FLLFnj",
+        "testimonial_rqAHiq"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "section_title": "Happy Clients",
+        "section_subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "background_color": "#3a3a3a",
+        "title_color": "#c9a96e",
+        "text_color": "#ffffff",
+        "card_bg_color": "#000000",
+        "card_border_color": "#c9a96e",
+        "star_color": "#ffd700",
+        "star_bg_color": "#2a2a2a",
+        "button_bg_color": "#c9a96e",
+        "button_text_color": "#000000",
+        "button_border_color": "#c9a96e",
+        "button_hover_bg": "#d4b57a",
+        "button_hover_text_color": "#000000",
+        "use_custom_prev_icon": true,
+        "prev_icon_image": "shopify://shop_images/Icon_2.png",
+        "use_custom_next_icon": true,
+        "next_icon_image": "shopify://shop_images/Icon_3.png"
+      }
+    },
+    "leather_bundle_banner_mUbEcC": {
+      "type": "leather-bundle-banner",
+      "name": "Leather Bundle Banner",
+      "settings": {
+        "subtitle": "The Master's Collection:",
+        "title": "The Ultimate Leather Bundle",
+        "description": "Elevate your performance with our most iconic magic accessories. Save 20% when you pair the Ultimma Wallet with the Prima Purse.",
+        "cta_text": "BUY NOW",
+        "cta_link": "",
+        "image_main": "shopify://shop_images/Wallet_2.png",
+        "image_secondary": "shopify://shop_images/Wallet_1.png",
+        "original_price": "00.00",
+        "sale_price": "00.00"
+      }
+    },
+    "features_banner_yfwAa7": {
+      "type": "features-banner",
+      "blocks": {
+        "feature_W63wmx": {
+          "type": "feature",
+          "settings": {
+            "use_custom_image": true,
+            "custom_icon_image": "shopify://shop_images/icon.png",
+            "icon": "hand-star",
+            "title": "High Quality",
+            "description": "crafted from top materials"
+          }
+        },
+        "feature_Er8yEq": {
+          "type": "feature",
+          "settings": {
+            "use_custom_image": true,
+            "custom_icon_image": "shopify://shop_images/icon_1.png",
+            "icon": "badge",
+            "title": "Warrany Protection",
+            "description": "Over 2 years"
+          }
+        },
+        "feature_gmpkGH": {
+          "type": "feature",
+          "settings": {
+            "use_custom_image": true,
+            "custom_icon_image": "shopify://shop_images/Vector.png",
+            "icon": "box",
+            "title": "Free Shipping",
+            "description": "Order over 150 $"
+          }
+        },
+        "feature_4xe94m": {
+          "type": "feature",
+          "settings": {
+            "use_custom_image": true,
+            "custom_icon_image": "shopify://shop_images/2891214031638194523_1.png",
+            "icon": "headset",
+            "title": "24 / 7 Support",
+            "description": "Dedicated support"
+          }
+        }
+      },
+      "block_order": [
+        "feature_W63wmx",
+        "feature_Er8yEq",
+        "feature_gmpkGH",
+        "feature_4xe94m"
+      ],
+      "name": "Features Banner",
+      "settings": {
+        "background_color": "#c9a96e",
+        "text_color": "#2d2d2d",
+        "icon_color": "#2d2d2d"
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "image_with_text_slider_z7iG3L",
+    "featured_collection",
+    "products_showcase_QzQaJQ",
+    "trust_banner_bUFTpC",
+    "meet_the_creator_GHWqAX",
+    "testimonials_custom_wewhM6",
+    "leather_bundle_banner_mUbEcC",
+    "features_banner_yfwAa7"
   ]
 }

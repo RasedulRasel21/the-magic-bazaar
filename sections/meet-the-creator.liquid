@@ -1,0 +1,334 @@
+{% comment %}
+  Meet The Creator Section
+  Showcases the creator/founder with bio and image
+{% endcomment %}
+
+<style>
+  .meet-creator-section {
+    background-color: {{ section.settings.background_color }};
+    padding: 80px 20px;
+  }
+
+  .creator-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .creator-content {
+    padding-right: 20px;
+  }
+
+  .creator-subtitle {
+    font-size: 22px;
+    color: {{ section.settings.subtitle_color }};
+    margin: 0;
+    letter-spacing: 1px;
+  }
+
+  .creator-name {
+    font-size: 48px;
+    font-weight: 400;
+    color: {{ section.settings.title_color }};
+    margin: 0 0 25px 0;
+    line-height: 1.2;
+  }
+
+  .creator-bio {
+    font-size: 14px;
+    line-height: 1.8;
+    color: {{ section.settings.text_color }};
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+
+  .creator-bio:last-of-type {
+    margin-bottom: 35px;
+  }
+
+ .view-profile-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 35px;
+  background-color: {{ section.settings.button_bg_color }};
+  color: {{ section.settings.button_text_color }};
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+/* Outer thin border */
+.view-profile-btn::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border: 1px solid {{ section.settings.button_border_color }};
+  pointer-events: none;
+}
+
+/* Hover effect */
+.view-profile-btn:hover {
+  background-color: {{ section.settings.button_hover_bg }};
+  color: {{ section.settings.button_hover_text_color }};
+}
+
+
+  .view-profile-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: {{ section.settings.button_text_color }};
+    transition: fill 0.3s ease;
+  }
+
+  .view-profile-btn:hover svg {
+    fill: {{ section.settings.button_hover_text_color }};
+  }
+
+  .view-profile-btn img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+
+  .creator-image-wrapper {
+    position: relative;
+  }
+
+  .creator-image-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 968px) {
+    .creator-container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .creator-content {
+      padding-right: 0;
+      order: 2;
+    }
+
+    .creator-image-wrapper {
+      order: 1;
+    }
+
+    .creator-name {
+      font-size: 38px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .creator-name {
+      font-size: 32px;
+    }
+
+    .creator-subtitle {
+      font-size: 14px;
+    }
+
+    .view-profile-btn {
+      padding: 12px 25px;
+      font-size: 14px;
+    }
+  }
+</style>
+
+<div class="meet-creator-section">
+  <div class="creator-container">
+    <div class="creator-content">
+      {% if section.settings.subtitle != blank %}
+        <p class="creator-subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+      
+      <h2 class="creator-name">{{ section.settings.creator_name }}</h2>
+      
+      {% if section.settings.bio_paragraph_1 != blank %}
+        <p class="creator-bio">{{ section.settings.bio_paragraph_1 }}</p>
+      {% endif %}
+      
+      {% if section.settings.bio_paragraph_2 != blank %}
+        <p class="creator-bio">{{ section.settings.bio_paragraph_2 }}</p>
+      {% endif %}
+      
+      {% if section.settings.button_url != blank %}
+        <a href="{{ section.settings.button_url }}" class="view-profile-btn">
+          {{ section.settings.button_text }}
+          {% if section.settings.use_custom_button_icon and section.settings.button_icon_image != blank %}
+            <img src="{{ section.settings.button_icon_image | img_url: '50x50' }}" 
+                 alt="Button Icon"
+                 loading="lazy">
+          {% else %}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6-1.41 1.41zM11.59 7.41L16.18 12l-4.59 4.59L13 18l6-6-6-6-1.41 1.41z"/>
+            </svg>
+          {% endif %}
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="creator-image-wrapper">
+      {% if section.settings.creator_image != blank %}
+        <div class="creator-image-frame">
+          <img src="{{ section.settings.creator_image | img_url: '800x' }}" 
+               alt="{{ section.settings.creator_name }}"
+               loading="lazy">
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Meet The Creator",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Meet The Creator"
+    },
+    {
+      "type": "text",
+      "id": "creator_name",
+      "label": "Creator Name",
+      "default": "Thomas Sealey"
+    },
+    {
+      "type": "textarea",
+      "id": "bio_paragraph_1",
+      "label": "Bio Paragraph 1",
+      "default": "Thomas Sealey is a magic creator with a growing focus on everyday carry (EDC) items—objects designed to live naturally in the real world while quietly enabling moments of impossibility."
+    },
+    {
+      "type": "textarea",
+      "id": "bio_paragraph_2",
+      "label": "Bio Paragraph 2",
+      "default": "Drawn to the challenge of making magic feel unforced and organic, his work centres on adapting familiar, everyday objects into ingenious tools—things that feel right to carry and never acting like props. Over the past three years, Thomas has released eight professional products, each shaped by a consistent philosophy: practical design, honest pricing, and tools that working performers would genuinely want to carry and use."
+    },
+    {
+      "type": "image_picker",
+      "id": "creator_image",
+      "label": "Creator Image"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "VIEW PROFILE"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_button_icon",
+      "label": "Use Custom Icon for Button",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "button_icon_image",
+      "label": "Button Icon Image",
+      "info": "Upload custom icon (recommended: 50x50px)"
+    },
+    {
+      "type": "header",
+      "content": "Color Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#0a0a0a"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Creator Name Color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "image_border_color",
+      "label": "Image Border Color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "image_bg_color",
+      "label": "Image Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button Border Color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg",
+      "label": "Button Hover Background",
+      "default": "#d4b57a"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Button Hover Text Color",
+      "default": "#000000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Meet The Creator",
+      "settings": {
+        "subtitle": "Meet The Creator",
+        "creator_name": "Thomas Sealey",
+        "bio_paragraph_1": "Thomas Sealey is a magic creator with a growing focus on everyday carry (EDC) items—objects designed to live naturally in the real world while quietly enabling moments of impossibility.",
+        "bio_paragraph_2": "Drawn to the challenge of making magic feel unforced and organic, his work centres on adapting familiar, everyday objects into ingenious tools—things that feel right to carry and never acting like props. Over the past three years, Thomas has released eight professional products, each shaped by a consistent philosophy: practical design, honest pricing, and tools that working performers would genuinely want to carry and use.",
+        "button_text": "VIEW PROFILE"
+      }
+    }
+  ]
+}
+{% endschema %}

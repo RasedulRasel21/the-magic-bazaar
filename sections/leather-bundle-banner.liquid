@@ -1,0 +1,326 @@
+
+<style>
+  .leather-bundle {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .leather-bundle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .bundle-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .bundle-content {
+    color: #fff;
+  }
+
+  .bundle-subtitle {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #c9a961;
+    margin-bottom: 10px;
+    font-weight: 300;
+  }
+
+  .bundle-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #d4af37;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+  }
+
+  .bundle-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 30px;
+    max-width: 400px;
+  }
+
+  .bundle-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #d4af37 0%, #c9a961 100%);
+    color: #1a1a1a;
+    padding: 14px 32px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border: 2px solid #d4af37;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bundle-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.3s ease;
+  }
+
+  .bundle-cta:hover::before {
+    left: 100%;
+  }
+
+  .bundle-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+  }
+
+  .bundle-images {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0;
+    align-items: start;
+  }
+
+  .bundle-image-main {
+    grid-column: 1;
+    grid-row: 1;
+    position: relative;
+    overflow: hidden;
+    background: #2d2d2d;
+    z-index: 2;
+  }
+
+  .bundle-image-main img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .bundle-image-main:hover img {
+    transform: scale(1.05);
+  }
+
+  .bundle-image-secondary {
+    grid-column: 2;
+    grid-row: 2;
+    position: relative;
+    overflow: hidden;
+    background: #2d2d2d;
+    margin-top: -50px;
+    margin-left: -50px;
+    z-index: 1;
+  }
+
+  .bundle-image-secondary img {
+    width: 78%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .bundle-image-secondary:hover img {
+    transform: scale(1.05);
+  }
+
+  .bundle-pricing {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: left;
+    padding: 20px 0 20px 20px;
+    z-index: 2;
+  }
+
+  .original-price {
+    font-size: 32px;
+    color: #fff;
+    opacity: 0.5;
+    text-decoration: line-through;
+    display: block;
+    margin-bottom: 5px;
+    font-family: "Averia Serif Libre";
+    line-height: 100%;
+  }
+
+  .sale-price {
+    font-size: 32px;
+    font-weight: 700;
+    color: #d4af37;
+    display: block;
+    font-family: "Averia Serif Libre";
+    line-height: 100%;
+  }
+
+  .sale-price-suffix {
+    font-size: 16px;
+    font-weight: 400;
+    color: #d4af37;
+  }
+
+  @media (max-width: 968px) {
+    .bundle-image-secondary img {
+      width: 100% !important;
+    }
+    .bundle-container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .bundle-title {
+      font-size: 36px;
+    }
+
+    .bundle-images {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+    }
+
+    .bundle-image-main {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .bundle-pricing {
+      grid-column: 1;
+      grid-row: 2;
+      padding: 20px;
+    }
+
+    .bundle-image-secondary {
+      grid-column: 1;
+      grid-row: 3;
+      margin-top: 0;
+      margin-left: 0;
+    }
+  }
+</style>
+
+<section class="leather-bundle">
+  <div class="bundle-container">
+    <div class="bundle-content">
+      <div class="bundle-subtitle">{{ section.settings.subtitle }}</div>
+      <h2 class="bundle-title">{{ section.settings.title }}</h2>
+      <p class="bundle-description">{{ section.settings.description }}</p>
+      <a href="{{ section.settings.cta_link }}" class="bundle-cta">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+        </svg>
+        {{ section.settings.cta_text }}
+      </a>
+    </div>
+
+    <div class="bundle-images">
+      <div class="bundle-image-main">
+        {% if section.settings.image_main %}
+          <img src="{{ section.settings.image_main | img_url: '800x' }}"
+               alt="{{ section.settings.title }}"
+               loading="lazy">
+        {% else %}
+          {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+
+      <div class="bundle-pricing">
+        <span class="original-price">${{ section.settings.original_price }}</span>
+        <span class="sale-price">
+          ${{ section.settings.sale_price }}
+          <span class="sale-price-suffix">/only</span>
+        </span>
+      </div>
+
+      {% if section.settings.image_secondary %}
+        <div class="bundle-image-secondary">
+          <img src="{{ section.settings.image_secondary | img_url: '400x' }}"
+               alt="{{ section.settings.title }} - Detail"
+               loading="lazy">
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Leather Bundle Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "The Master's Collection:"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "The Ultimate Leather Bundle"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Elevate your performance with our most iconic magic accessories. Save 20% when you pair the Ultimma Wallet with the Prima Purse."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button Text",
+      "default": "BUY NOW"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_main",
+      "label": "Main Product Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_secondary",
+      "label": "Secondary Product Image"
+    },
+    {
+      "type": "text",
+      "id": "original_price",
+      "label": "Original Price",
+      "default": "00.00"
+    },
+    {
+      "type": "text",
+      "id": "sale_price",
+      "label": "Sale Price",
+      "default": "00.00"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Leather Bundle Banner"
+    }
+  ]
+}
+{% endschema %}
