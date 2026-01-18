@@ -59,6 +59,33 @@
         "padding_bottom": 12
       }
     },
+    "ultimus_product_description_DrCTWw": {
+      "type": "ultimus-product-description",
+      "name": "Ultimus Product Description",
+      "settings": {
+        "tab1_title": "Product Description",
+        "tab2_title": "Features & Capabilities",
+        "description_title": "Ultimus Wallet — Product Description",
+        "paragraph_1": "The Ultimus Wallet was not created to do everything. It was created to do the right things — the most favoured, most usable routines that working performers actually rely on — and to do them exceptionally well. Every feature exists for a reason, and nothing has been added simply to inflate a checklist. Ultimus is designed to feel like a normal, contemporary wallet while quietly enabling strong, repeatable magic under real-world conditions.",
+        "paragraph_2": "At its core is a unique internal architecture built around method-performance disconnect. Actions appear unconnected, motivated, and innocent, making reconstruction virtually impossible. Ultimus includes a clean, traditional peek; an integrated S.U.C feature; and a no-palm card to wallet that feels natural and direct. Its card-to-envelope system is deliberately layered — allowing a signed card to appear inside a sealed envelope, inside a zippered compartment, inside a fastened wallet — each layer reinforcing the impossibility without increasing handling complexity.",
+        "paragraph_3": "Ultimus also functions fully as an everyday wallet. It includes a speed-loading slide (included but entirely optional), a separate zippered coin compartment, multiple credit card slots, and organised storage areas for pocket tricks, billets, or multiple outs. A discreet built-in thumb tip — perhaps one of the invisible exchange of small objects or micro billets, seamlessly integrated into normal wallet use. Ultimus does not draw attention to itself — it removes it. This is a wallet designed for performers who value clarity, reliability, and credibility over novelty.",
+        "features_title": "Features & Capabilities",
+        "feature_1_desc": "Clean, natural peek with a complete view of the card — no fishing, no compromise.",
+        "feature_2_desc": "Perfect for a rainbow card, prediction, or visual reveal without drawing heat.",
+        "feature_3_desc": "A signed card appears impossibly inside the purse in a way that feels logical and unforced.",
+        "feature_4_desc": "Supports sealed-envelope reveals for high impact, layered routines.",
+        "feature_5_desc": "Invisible, motivated switches built into normal purse actions.",
+        "feature_6_desc": "Allows you to tailor the purse for specific routines or simplify for casual carry.",
+        "feature_7_desc": "Keeps props separated, organised, and instantly accessible.",
+        "feature_8_desc": "Functions as a genuine everyday purse, not a magic prop.",
+        "feature_9_desc": "No folding, no trimming — real-world usability preserved.",
+        "feature_10_desc": "Secure storage for coins, rings, or additional magical utilities.",
+        "creator_image": "shopify://shop_images/Frame_2147226683.png",
+        "creator_name": "Thomas Sealey",
+        "creator_bio": "Thomas Sealey is a magic creator with a growing focus on everyday carry (EDC) items—objects designed to live naturally in the real world while quietly enabling moments of impossibility.",
+        "creator_link": "shopify://products/prima-purse"
+      }
+    },
     "products_showcase_kcVpnN": {
       "type": "products-showcase",
       "name": "Products Showcase",
@@ -223,6 +250,7 @@
   },
   "order": [
     "main",
+    "ultimus_product_description_DrCTWw",
     "products_showcase_kcVpnN",
     "testimonials_custom_EJaFF8",
     "related-products"

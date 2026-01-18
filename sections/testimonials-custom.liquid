@@ -45,12 +45,14 @@
     transition: transform 0.5s ease;
   }
 
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    width: 100%;
+  .testimonial-slide {
+    width: calc(33.333% - 20px);
+    margin-right: 30px;
     flex-shrink: 0;
+  }
+
+  .testimonial-slide:last-child {
+    margin-right: 0;
   }
 
   .testimonial-card {
@@ -214,8 +216,8 @@
   }
 
   @media (max-width: 1200px) {
-    .testimonials-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .testimonial-slide {
+      width: calc(50% - 15px);
     }
   }
 
@@ -224,9 +226,9 @@
       font-size: 36px;
     }
 
-    .testimonials-grid {
-      grid-template-columns: 1fr;
-      gap: 20px;
+    .testimonial-slide {
+      width: 100%;
+      margin-right: 20px;
     }
   }
 
@@ -262,53 +264,42 @@
 
     <div class="testimonials-carousel" id="testimonials-carousel-{{ section.id }}">
       <div class="testimonials-wrapper" id="testimonials-wrapper-{{ section.id }}">
-        {% assign total_blocks = section.blocks.size %}
-        {% assign pages = total_blocks | divided_by: 3.0 | ceil %}
-        
-        {% for page in (0..pages) %}
-          {% assign start_index = page | times: 3 %}
-          {% assign end_index = start_index | plus: 2 %}
-          
-          <div class="testimonials-grid">
-            {% for i in (start_index..end_index) %}
-              {% if i < total_blocks %}
-                {% assign block = section.blocks[i] %}
-                <div class="testimonial-card" {{ block.shopify_attributes }}>
-                  <div class="stars">
-                    {% for star in (1..block.settings.rating) %}
-                      <span class="star">★</span>
-                    {% endfor %}
+        {% for block in section.blocks %}
+          <div class="testimonial-slide">
+            <div class="testimonial-card" {{ block.shopify_attributes }}>
+              <div class="stars">
+                {% for star in (1..block.settings.rating) %}
+                  <span class="star">★</span>
+                {% endfor %}
+              </div>
+
+              <h3 class="testimonial-title">{{ block.settings.testimonial_title }}</h3>
+              <p class="testimonial-text">{{ block.settings.testimonial_text }}</p>
+
+              <div class="testimonial-author">
+                {% if block.settings.author_image != blank %}
+                  <img src="{{ block.settings.author_image | img_url: '100x100', crop: 'center' }}"
+                       alt="{{ block.settings.author_name }}"
+                       class="author-image"
+                       loading="lazy">
+                {% else %}
+                  <div class="author-image-placeholder">
+                    {{ block.settings.author_name | slice: 0 }}
                   </div>
-                  
-                  <h3 class="testimonial-title">{{ block.settings.testimonial_title }}</h3>
-                  <p class="testimonial-text">{{ block.settings.testimonial_text }}</p>
-                  
-                  <div class="testimonial-author">
-                    {% if block.settings.author_image != blank %}
-                      <img src="{{ block.settings.author_image | img_url: '100x100', crop: 'center' }}" 
-                           alt="{{ block.settings.author_name }}"
-                           class="author-image"
-                           loading="lazy">
-                    {% else %}
-                      <div class="author-image-placeholder">
-                        {{ block.settings.author_name | slice: 0 }}
-                      </div>
-                    {% endif %}
-                    
-                    <div class="author-info">
-                      <h4>{{ block.settings.author_name }}</h4>
-                      <p>{{ block.settings.author_role }}</p>
-                    </div>
-                  </div>
+                {% endif %}
+
+                <div class="author-info">
+                  <h4>{{ block.settings.author_name }}</h4>
+                  <p>{{ block.settings.author_role }}</p>
                 </div>
-              {% endif %}
-            {% endfor %}
+              </div>
+            </div>
           </div>
         {% endfor %}
       </div>
     </div>
 
-    {% if pages > 0 %}
+    {% if section.blocks.size > 1 %}
       <div class="carousel-controls">
         <button class="carousel-btn" id="prev-btn-{{ section.id }}" aria-label="Previous testimonials">
           {% if section.settings.use_custom_prev_icon and section.settings.prev_icon_image != blank %}
@@ -342,33 +333,79 @@
     const wrapper = document.getElementById('testimonials-wrapper-{{ section.id }}');
     const prevBtn = document.getElementById('prev-btn-{{ section.id }}');
     const nextBtn = document.getElementById('next-btn-{{ section.id }}');
-    
+
     if (!wrapper || !prevBtn || !nextBtn) return;
-    
-    let currentPage = 0;
-    const totalPages = {{ pages }};
-    
-    function updateCarousel() {
-      wrapper.style.transform = `translateX(-${currentPage * 100}%)`;
-      prevBtn.disabled = currentPage === 0;
-      nextBtn.disabled = currentPage === totalPages;
+
+    const slides = wrapper.querySelectorAll('.testimonial-slide');
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+    let itemsPerSlide = getItemsPerSlide();
+
+    function getItemsPerSlide() {
+      if (window.innerWidth <= 768) {
+        return 1; // Mobile: 1 item
+      } else if (window.innerWidth <= 1200) {
+        return 2; // Tablet: 2 items
+      } else {
+        return 3; // Desktop: 3 items
+      }
     }
-    
+
+    function updateCarousel() {
+      const slide = slides[0];
+      if (!slide) return;
+
+      const slideWidth = slide.offsetWidth;
+      const gap = parseInt(getComputedStyle(slide).marginRight) || 0;
+      const totalWidth = slideWidth + gap;
+      const offset = currentIndex * totalWidth;
+
+      wrapper.style.transform = `translateX(-${offset}px)`;
+
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex >= totalSlides - itemsPerSlide;
+
+      // Hide controls if all items fit on screen
+      const controls = prevBtn.parentElement;
+      if (controls && totalSlides <= itemsPerSlide) {
+        controls.style.display = 'none';
+      } else if (controls) {
+        controls.style.display = 'flex';
+      }
+    }
+
     prevBtn.addEventListener('click', () => {
-      if (currentPage > 0) {
-        currentPage--;
+      if (currentIndex > 0) {
+        currentIndex--;
         updateCarousel();
       }
     });
-    
+
     nextBtn.addEventListener('click', () => {
-      if (currentPage < totalPages) {
-        currentPage++;
+      if (currentIndex < totalSlides - itemsPerSlide) {
+        currentIndex++;
         updateCarousel();
       }
     });
-    
-    updateCarousel();
+
+    // Handle window resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        const newItemsPerSlide = getItemsPerSlide();
+        if (newItemsPerSlide !== itemsPerSlide) {
+          itemsPerSlide = newItemsPerSlide;
+          currentIndex = Math.min(currentIndex, Math.max(0, totalSlides - itemsPerSlide));
+        }
+        updateCarousel();
+      }, 250);
+    });
+
+    // Initial load
+    setTimeout(() => {
+      updateCarousel();
+    }, 100);
   })();
 </script>
 

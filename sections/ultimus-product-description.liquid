@@ -1,0 +1,433 @@
+{% comment %}
+  Ultimus Wallet Product Description Section
+  Save this as: sections/product-description-ultimus.liquid
+{% endcomment %}
+
+<style>
+  .ultimus-product-wrapper {
+    background-color: #0a0a0a;
+    color: #c8a878;
+    font-family: 'Georgia', serif;
+    padding: 60px 20px;
+  }
+
+  .ultimus-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ultimus-tabs {
+    display: flex;
+    justify-content: flex-start;
+    gap: 60px;
+    margin-bottom: 50px;
+    position: relative;
+  }
+
+  .ultimus-tabs::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 1px;
+    background-color: #333333;
+  }
+
+  .ultimus-tab {
+    font-size: 18px;
+    padding: 15px 0;
+    cursor: pointer;
+    position: relative;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+
+  .ultimus-tab:hover {
+    opacity: 0.8;
+  }
+
+  .ultimus-tab.active {
+    font-weight: 600;
+  }
+
+  .ultimus-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #c8a878;
+    box-shadow: 0 0 10px rgba(200, 168, 120, 0.5);
+    z-index: 2;
+  }
+
+  .ultimus-content {
+    display: none;
+  }
+
+  .ultimus-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .ultimus-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+    color: #c8a878;
+  }
+
+  .ultimus-paragraph {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    text-align: justify;
+    color: #e8e8e8;
+  }
+
+
+  .ultimus-feature-title {
+    color: #c8a878;
+    font-size: 15px;
+    margin-bottom: 8px;
+    font-weight: normal;
+  }
+
+  .ultimus-feature-description {
+    color: #e8e8e8;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 5px;
+  }
+
+  .ultimus-divider {
+    border: 0;
+    border-top: 1px solid #333333;
+    margin: 40px 0;
+  }
+
+  .ultimus-creator {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 50px;
+    padding-top: 30px;
+  }
+
+  .ultimus-creator-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .ultimus-creator-content {
+    flex: 1;
+  }
+
+  .ultimus-creator-label {
+    color: #c8a878;
+    font-size: 13px;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .ultimus-creator-bio {
+    color: #e8e8e8;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .ultimus-read-more {
+    color: #c8a878;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: inline-block;
+    transition: opacity 0.3s ease;
+  }
+
+  .ultimus-read-more:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    .ultimus-tabs {
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .ultimus-tab {
+      font-size: 16px;
+    }
+
+    .ultimus-title {
+      font-size: 24px;
+    }
+
+    .ultimus-paragraph {
+      font-size: 14px;
+    }
+  }
+</style>
+
+<div class="ultimus-product-wrapper">
+  <div class="ultimus-container">
+    <div class="ultimus-tabs">
+      <div class="ultimus-tab active" data-tab="description">
+        {{ section.settings.tab1_title }}
+      </div>
+      <div class="ultimus-tab" data-tab="features">
+        {{ section.settings.tab2_title }}
+      </div>
+    </div>
+
+    <div class="ultimus-content active" id="description">
+      <h2 class="ultimus-title">{{ section.settings.description_title }}</h2>
+      
+      <div class="ultimus-paragraph">
+        {{ section.settings.paragraph_1 }}
+      </div>
+
+      <div class="ultimus-paragraph">
+        {{ section.settings.paragraph_2 }}
+      </div>
+
+      <div class="ultimus-paragraph">
+        {{ section.settings.paragraph_3 }}
+      </div>
+    </div>
+
+    <div class="ultimus-content" id="features">
+      <h2 class="ultimus-title">{{ section.settings.features_title }}</h2>
+      
+      <div class="ultimus-feature-item">
+        <div class="ultimus-feature-title">• Full poker-sized card peek</div>
+        <div class="ultimus-feature-description">{{ section.settings.feature_1_desc }}</div>
+      </div>
+
+      <div class="ultimus-feature-item">
+        <div class="ultimus-feature-title">• Clear display window</div>
+        <div class="ultimus-feature-description">{{ section.settings.feature_2_desc }}</div>
+      </div>
+
+      <div class="ultimus-feature-item">
+        <div class="ultimus-feature-title">• Card to purse</div>
+        <div class="ultimus-feature-description">{{ section.settings.feature_3_desc }}</div>
+      </div>
+
+      <div class="ultimus-feature-item">
+        <div class="ultimus-feature-title">• Card/ring to envelope</div>
+        <div class="ultimus-feature-description">{{ section.settings.feature_4_desc }}</div>
+      </div>
+
+      <div class="ultimus-feature-item">
+        <div class="ultimus-feature-title">• Integrated switch functionality</div>
+        <div class="ultimus-feature-description">{{ section.settings.feature_5_desc }}</div>
+      </div>
+
+      <div class="ultimus-feature-item">
+        <div class="ultimus-feature-title">• Optional removable slide (included)</div>
+        <div class="ultimus-feature-description">{{ section.settings.feature_6_desc }}</div>
+      </div>
+
+      <div class="ultimus-feature-item">
+        <div class="ultimus-feature-title">• Multiple internal storage compartments</div>
+        <div class="ultimus-feature-description">{{ section.settings.feature_7_desc }}</div>
+      </div>
+
+      <div class="ultimus-feature-item">
+        <div class="ultimus-feature-title">• Six credit card slots</div>
+        <div class="ultimus-feature-description">{{ section.settings.feature_8_desc }}</div>
+      </div>
+
+      <div class="ultimus-feature-item">
+        <div class="ultimus-feature-title">• Carries full-sized banknotes</div>
+        <div class="ultimus-feature-description">{{ section.settings.feature_9_desc }}</div>
+      </div>
+
+      <div class="ultimus-feature-item">
+        <div class="ultimus-feature-title">• Zippered compartment</div>
+        <div class="ultimus-feature-description">{{ section.settings.feature_10_desc }}</div>
+      </div>
+
+      <hr class="ultimus-divider">
+
+      <div class="ultimus-creator">
+        <img src="{{ section.settings.creator_image | img_url: '160x160' }}" alt="{{ section.settings.creator_name }}" class="ultimus-creator-image">
+        <div class="ultimus-creator-content">
+          <div class="ultimus-creator-label">CREATOR: {{ section.settings.creator_name }}</div>
+          <div class="ultimus-creator-bio">{{ section.settings.creator_bio }}</div>
+          <a href="{{ section.settings.creator_link }}" class="ultimus-read-more">READ MORE</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.ultimus-tab');
+    const contents = document.querySelectorAll('.ultimus-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        const targetTab = this.getAttribute('data-tab');
+
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+
+        this.classList.add('active');
+        document.getElementById(targetTab).classList.add('active');
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Ultimus Product Descrip",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tab1_title",
+      "label": "Tab 1 Title",
+      "default": "Product Description"
+    },
+    {
+      "type": "text",
+      "id": "tab2_title",
+      "label": "Tab 2 Title",
+      "default": "Features & Capabilities"
+    },
+    {
+      "type": "text",
+      "id": "description_title",
+      "label": "Description Title",
+      "default": "Ultimus Wallet — Product Description"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_1",
+      "label": "First Paragraph",
+      "default": "The Ultimus Wallet was not created to do everything. It was created to do the right things — the most favoured, most usable routines that working performers actually rely on — and to do them exceptionally well. Every feature exists for a reason, and nothing has been added simply to inflate a checklist. Ultimus is designed to feel like a normal, contemporary wallet while quietly enabling strong, repeatable magic under real-world conditions."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_2",
+      "label": "Second Paragraph",
+      "default": "At its core is a unique internal architecture built around method-performance disconnect. Actions appear unconnected, motivated, and innocent, making reconstruction virtually impossible. Ultimus includes a clean, traditional peek; an integrated S.U.C feature; and a no-palm card to wallet that feels natural and direct. Its card-to-envelope system is deliberately layered — allowing a signed card to appear inside a sealed envelope, inside a zippered compartment, inside a fastened wallet — each layer reinforcing the impossibility without increasing handling complexity."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_3",
+      "label": "Third Paragraph",
+      "default": "Ultimus also functions fully as an everyday wallet. It includes a speed-loading slide (included but entirely optional), a separate zippered coin compartment, multiple credit card slots, and organised storage areas for pocket tricks, billets, or multiple outs. A discreet built-in thumb tip — perhaps one of the invisible exchange of small objects or micro billets, seamlessly integrated into normal wallet use. Ultimus does not draw attention to itself — it removes it. This is a wallet designed for performers who value clarity, reliability, and credibility over novelty."
+    },
+    {
+      "type": "text",
+      "id": "features_title",
+      "label": "Features Title",
+      "default": "PrimaPurse — Features & Capabilities"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_1_desc",
+      "label": "Feature 1 Description",
+      "default": "Clean, natural peek with a complete view of the card — no fishing, no compromise."
+    },
+    {
+      "type": "textarea",
+      "id": "feature_2_desc",
+      "label": "Feature 2 Description",
+      "default": "Perfect for a rainbow card, prediction, or visual reveal without drawing heat."
+    },
+    {
+      "type": "textarea",
+      "id": "feature_3_desc",
+      "label": "Feature 3 Description",
+      "default": "A signed card appears impossibly inside the purse in a way that feels logical and unforced."
+    },
+    {
+      "type": "textarea",
+      "id": "feature_4_desc",
+      "label": "Feature 4 Description",
+      "default": "Supports sealed-envelope reveals for high impact, layered routines."
+    },
+    {
+      "type": "textarea",
+      "id": "feature_5_desc",
+      "label": "Feature 5 Description",
+      "default": "Invisible, motivated switches built into normal purse actions."
+    },
+    {
+      "type": "textarea",
+      "id": "feature_6_desc",
+      "label": "Feature 6 Description",
+      "default": "Allows you to tailor the purse for specific routines or simplify for casual carry."
+    },
+    {
+      "type": "textarea",
+      "id": "feature_7_desc",
+      "label": "Feature 7 Description",
+      "default": "Keeps props separated, organised, and instantly accessible."
+    },
+    {
+      "type": "textarea",
+      "id": "feature_8_desc",
+      "label": "Feature 8 Description",
+      "default": "Functions as a genuine everyday purse, not a magic prop."
+    },
+    {
+      "type": "textarea",
+      "id": "feature_9_desc",
+      "label": "Feature 9 Description",
+      "default": "No folding, no trimming — real-world usability preserved."
+    },
+    {
+      "type": "textarea",
+      "id": "feature_10_desc",
+      "label": "Feature 10 Description",
+      "default": "Secure storage for coins, rings, or additional magical utilities."
+    },
+    {
+      "type": "image_picker",
+      "id": "creator_image",
+      "label": "Creator Image"
+    },
+    {
+      "type": "text",
+      "id": "creator_name",
+      "label": "Creator Name",
+      "default": "Thomas Sealey"
+    },
+    {
+      "type": "textarea",
+      "id": "creator_bio",
+      "label": "Creator Bio",
+      "default": "Thomas Sealey is a magic creator with a growing focus on everyday carry (EDC) items—objects designed to live naturally in the real world while quietly enabling moments of impossibility."
+    },
+    {
+      "type": "url",
+      "id": "creator_link",
+      "label": "Creator Link/Read More URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ultimus Product Description"
+    }
+  ]
+}
+{% endschema %}

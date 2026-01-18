@@ -1,0 +1,362 @@
+{% comment %}
+  Contact Us Form Section
+  Save this as: sections/contact-form.liquid
+{% endcomment %}
+
+<style>
+  .contact-form-wrapper {
+    background-color: #0a0a0a;
+    padding: 40px 20px;
+  }
+
+  .contact-form-container {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+
+  .contact-form-title {
+    font-size: 28px;
+    color: #c8a878;
+    font-family: 'Georgia', serif;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+  }
+
+  .contact-form-box {
+    border: 1px solid #c8a878;
+    padding: 35px 40px;
+    background-color: rgba(200, 168, 120, 0.03);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+
+  .contact-form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-form-group.full-width {
+    grid-column: 1 / -1;
+  }
+
+  @media (max-width: 768px) {
+    .contact-form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .contact-form-label {
+    font-size: 13px;
+    color: #fff;
+    font-family: 'Georgia', serif;
+    margin-bottom: 8px;
+  }
+
+  .contact-form-input,
+  .contact-form-textarea {
+    background-color: transparent;
+    border: 1px solid #666666;
+    color: #e8e8e8;
+    padding: 10px 12px;
+    font-size: 13px;
+    font-family: 'Georgia', serif;
+    transition: border-color 0.3s ease;
+  }
+
+  .contact-form-input:focus,
+  .contact-form-textarea:focus {
+    outline: none;
+    border-color: #c8a878;
+  }
+
+  .contact-form-textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .contact-form-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .contact-form-button {
+    background-color: #c8a878;
+    color: #0a0a0a;
+    border: none;
+    padding: 12px 35px;
+    font-size: 13px;
+    font-family: 'Georgia', serif;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .contact-form-button:hover {
+    background-color: #b89968;
+    transform: translateY(-2px);
+  }
+
+  .contact-form-button svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+
+  .contact-form-button img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+  }
+
+  .contact-form-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .contact-form-message.success {
+    background-color: rgba(76, 175, 80, 0.2);
+    border: 1px solid #4CAF50;
+    color: #4CAF50;
+  }
+
+  .contact-form-message.error {
+    background-color: rgba(244, 67, 54, 0.2);
+    border: 1px solid #f44336;
+    color: #f44336;
+  }
+
+  /* Hide reCAPTCHA badge */
+  .contact-form-box [data-sitekey],
+  .contact-form-box > div[id*="captcha"],
+  .contact-form-box > div[class*="captcha"],
+  .h-captcha,
+  .g-recaptcha,
+  [data-sitekey],
+  iframe[src*="hcaptcha"],
+  iframe[src*="recaptcha"],
+  div[style*="width: 668px"],
+  div[style*="378.17px"] {
+    display: none !important;
+    position: absolute !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    left: -9999px !important;
+  }
+
+  .contact-form-box form > div:last-child:not(.contact-form):not(.contact-form-button-wrapper) {
+    display: none !important;
+  }
+
+  @media (max-width: 768px) {
+    .contact-form {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-form-box {
+      padding: 25px;
+    }
+
+    .contact-form-title {
+      font-size: 26px;
+    }
+  }
+</style>
+
+<div class="contact-form-wrapper">
+  <div class="contact-form-container">
+    <h2 class="contact-form-title">{{ section.settings.form_title }}</h2>
+
+    <div class="contact-form-box">
+      {% form 'contact' %}
+        {% if form.posted_successfully? %}
+          <div class="contact-form-message success">
+            {{ section.settings.success_message }}
+          </div>
+        {% endif %}
+
+        {% if form.errors %}
+          <div class="contact-form-message error">
+            {{ form.errors | default_errors }}
+          </div>
+        {% endif %}
+
+        <div class="contact-form">
+          <div class="contact-form-row">
+            <div class="contact-form-group">
+              <label for="contact-name" class="contact-form-label">
+                {{ section.settings.name_label }}
+              </label>
+              <input
+                type="text"
+                id="contact-name"
+                name="contact[name]"
+                class="contact-form-input"
+                value="{% if form.name %}{{ form.name }}{% endif %}"
+                required
+              />
+            </div>
+
+            <div class="contact-form-group">
+              <label for="contact-email" class="contact-form-label">
+                {{ section.settings.email_label }}
+              </label>
+              <input
+                type="email"
+                id="contact-email"
+                name="contact[email]"
+                class="contact-form-input"
+                value="{% if form.email %}{{ form.email }}{% endif %}"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="contact-form-row">
+            <div class="contact-form-group">
+              <label for="contact-phone" class="contact-form-label">
+                {{ section.settings.phone_label }}
+              </label>
+              <input
+                type="tel"
+                id="contact-phone"
+                name="contact[phone]"
+                class="contact-form-input"
+                value="{% if form.phone %}{{ form.phone }}{% endif %}"
+              />
+            </div>
+
+            <div class="contact-form-group">
+              <label for="contact-subject" class="contact-form-label">
+                {{ section.settings.subject_label }}
+              </label>
+              <input
+                type="text"
+                id="contact-subject"
+                name="contact[subject]"
+                class="contact-form-input"
+                value="{% if form.subject %}{{ form.subject }}{% endif %}"
+              />
+            </div>
+          </div>
+
+          <div class="contact-form-group full-width">
+            <label for="contact-message" class="contact-form-label">
+              {{ section.settings.message_label }}
+            </label>
+            <textarea
+              id="contact-message"
+              name="contact[body]"
+              class="contact-form-textarea"
+              required
+            >{% if form.body %}{{ form.body }}{% endif %}</textarea>
+          </div>
+
+          <div class="contact-form-button-wrapper">
+            <button type="submit" class="contact-form-button">
+              {{ section.settings.button_text }}
+              {% if section.settings.button_icon != blank %}
+                <img src="{{ section.settings.button_icon | img_url: 'small' }}" alt="Send">
+              {% else %}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                </svg>
+              {% endif %}
+            </button>
+          </div>
+        </div>
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Form custom",
+  "settings": [
+    {
+      "type": "text",
+      "id": "form_title",
+      "label": "Form Title",
+      "default": "Contact Us"
+    },
+    {
+      "type": "text",
+      "id": "name_label",
+      "label": "Name Field Label",
+      "default": "Your Name"
+    },
+    {
+      "type": "text",
+      "id": "email_label",
+      "label": "Email Field Label",
+      "default": "Email Address"
+    },
+    {
+      "type": "text",
+      "id": "phone_label",
+      "label": "Phone Field Label",
+      "default": "Phone Number"
+    },
+    {
+      "type": "text",
+      "id": "subject_label",
+      "label": "Subject Field Label",
+      "default": "You Want to Buy/Sell?"
+    },
+    {
+      "type": "text",
+      "id": "message_label",
+      "label": "Message Field Label",
+      "default": "Your Message"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Submit Button Text",
+      "default": "Send Message"
+    },
+    {
+      "type": "image_picker",
+      "id": "button_icon",
+      "label": "Button Icon (optional)",
+      "info": "Upload a custom icon image. If left empty, default send icon will be used."
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success Message",
+      "default": "Thank you for contacting us! We'll get back to you soon."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Form custom"
+    }
+  ]
+}
+{% endschema %}

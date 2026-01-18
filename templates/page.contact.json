@@ -19,6 +19,7 @@
     },
     "form": {
       "type": "contact-form",
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h1",
@@ -26,10 +27,43 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "contact_form_custom_XmRe7R": {
+      "type": "contact-form-custom",
+      "name": "Contact Form custom",
+      "settings": {
+        "form_title": "Contact Us",
+        "name_label": "Your Name",
+        "email_label": "Email Address",
+        "phone_label": "Phone Number",
+        "subject_label": "You Want to Buy/Sell?",
+        "message_label": "Your Message",
+        "button_text": "Send Message",
+        "button_icon": "shopify://shop_images/Frame.png",
+        "success_message": "Thank you for contacting us! We'll get back to you soon."
+      }
+    },
+    "contact_support_tabs_jca7mD": {
+      "type": "contact-support-tabs",
+      "name": "Contact Support Tabs",
+      "settings": {
+        "tab1_text": "Chat Now",
+        "tab2_text": "Return & Exchange Policy",
+        "tab3_text": "Shipping Policy",
+        "questions_title": "Other Questions?",
+        "phone": "(000) 123-456",
+        "email": "Loremipsum@gmail.com",
+        "whatsapp": "(000) 123-456",
+        "whatsapp_label": "Whatsapp",
+        "return_policy_content": "<p>Add your return and exchange policy here.</p>",
+        "shipping_policy_content": "<p>Add your shipping policy here.</p>"
+      }
     }
   },
   "order": [
     "main",
-    "form"
+    "form",
+    "contact_form_custom_XmRe7R",
+    "contact_support_tabs_jca7mD"
   ]
 }
