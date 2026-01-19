@@ -163,6 +163,33 @@
     transition: color 0.3s ease;
   }
 
+  .footer-bottom a:hover {
+    color: #d4af37;
+  }
+
+  .policy-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 20px;
+    margin-bottom: 15px;
+  }
+
+  .policy-links a {
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.3s ease;
+  }
+
+  .policy-links a:hover {
+    color: #d4af37;
+  }
+
+  .policy-links span {
+    color: #666;
+  }
+
   .newsletter-success {
     display: none;
     color: #4caf50;
@@ -300,6 +327,28 @@
             </a>
         {% endif %}
       </p>
+      {% if section.settings.show_policy_links %}
+        <div class="policy-links">
+          {% if shop.privacy_policy %}
+            <a href="{{ shop.privacy_policy.url }}">{{ shop.privacy_policy.title }}</a>
+          {% endif %}
+          {% if shop.terms_of_service %}
+            <a href="{{ shop.terms_of_service.url }}">{{ shop.terms_of_service.title }}</a>
+          {% endif %}
+          {% if shop.refund_policy %}
+            <a href="{{ shop.refund_policy.url }}">{{ shop.refund_policy.title }}</a>
+          {% endif %}
+          {% if shop.shipping_policy %}
+            <a href="{{ shop.shipping_policy.url }}">{{ shop.shipping_policy.title }}</a>
+          {% endif %}
+          {% if shop.subscription_policy %}
+            <a href="{{ shop.subscription_policy.url }}">{{ shop.subscription_policy.title }}</a>
+          {% endif %}
+          {% if shop.contact_information %}
+            <a href="{{ shop.contact_information.url }}">Contact Information</a>
+          {% endif %}
+        </div>
+      {% endif %}
     </div>
   </div>
 </footer>
@@ -423,6 +472,13 @@
     {
       "type": "header",
       "content": "Footer Bottom"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_policy_links",
+      "label": "Show Policy Links",
+      "default": true,
+      "info": "Display links to Privacy Policy, Terms of Service, Refund Policy, etc."
     },
     {
       "type": "text",
