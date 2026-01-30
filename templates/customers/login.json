@@ -12,13 +12,35 @@
     "main": {
       "type": "main-login",
       "settings": {
-        "enable_shop_login_button": "true",
+        "enable_shop_login_button": false,
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "1769175238000ccf29": {
+      "type": "apps",
+      "blocks": {
+        "sky_pilot_customer_digital_library_button_ggaYzi": {
+          "type": "shopify://apps/sky-pilot/blocks/customer_digital_library_button/d19e6703-9148-4c06-b38c-b4d4f4a42811",
+          "settings": {
+            "button_label": "My Digital Content",
+            "justification": "center",
+            "hide_if_no_downloads": false,
+            "css_classes": "btn button button--primary",
+            "custom_css": "margin-top: 20px;"
+          }
+        }
+      },
+      "block_order": [
+        "sky_pilot_customer_digital_library_button_ggaYzi"
+      ],
+      "settings": {
+        "include_margins": true
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "1769175238000ccf29"
   ]
 }

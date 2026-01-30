@@ -15,6 +15,51 @@
 .customer > h1,
 .customer__title {
   margin-top: 0;
+  color: #fff;
+}
+
+.customer h1 {
+  color: #fff;
+}
+
+.customer h2 {
+  color: #fff;
+}
+
+.customer h3 {
+  color: #fff;
+}
+
+.customer h4 {
+  color: #fff;
+}
+
+.customer h5 {
+  color: #fff;
+}
+
+.customer h6 {
+  color: #fff;
+}
+
+.customer p {
+  color: #fff;
+}
+
+.customer span {
+  color: #fff;
+}
+
+.customer a {
+  color: #fff;
+}
+
+.customer a:hover {
+  color: #d4af37;
+}
+
+.customer label {
+  color: #fff;
 }
 
 .customer form {
@@ -23,6 +68,7 @@
 
 .customer button {
   margin: 4rem 0 1.5rem;
+  color: #fff;
 }
 
 .customer ul {
@@ -32,17 +78,27 @@
   margin-bottom: 4rem;
 }
 
+.customer li {
+  color: #fff;
+}
+
 .customer ul a {
   display: inline;
+  color: #fff;
+}
+
+.customer ul a:hover {
+  color: #d4af37;
 }
 
 .customer strong {
   font-weight: normal;
-  color: rgb(var(--color-foreground));
+  color: #fff;
 }
 
 .customer h2.form__message {
   font-size: calc(var(--font-heading-scale) * 1.8rem);
+  color: #fff;
 }
 
 @media only screen and (min-width: 750px) {
@@ -68,6 +124,7 @@
   width: 100%;
   font-size: 1.6rem;
   position: relative;
+  color: #fff;
 }
 
 @media screen and (min-width: 750px) {
@@ -85,7 +142,7 @@
 }
 
 .customer tbody {
-  color: rgb(var(--color-foreground));
+  color: #fff;
 }
 
 .customer th,
@@ -94,6 +151,7 @@
   line-height: 1;
   border: none;
   padding: 0;
+  color: #fff;
 }
 
 @media screen and (min-width: 750px) {
@@ -105,6 +163,7 @@
 .customer tbody td {
   padding-top: 1rem;
   padding-bottom: 1rem;
+  color: #fff;
 }
 
 .customer td:empty {
@@ -115,6 +174,7 @@
   font-size: 1.2rem;
   letter-spacing: 0.07rem;
   text-transform: uppercase;
+  color: #fff;
 }
 
 .customer tbody td:first-of-type {
@@ -179,6 +239,7 @@
 .customer tfoot td {
   padding-top: 0.6rem;
   padding-bottom: 0.6rem;
+  color: #fff;
 }
 
 .customer tfoot td:first-of-type {
@@ -240,7 +301,7 @@
   }
 
   .customer td::before {
-    color: rgba(var(--color-foreground), 0.75);
+    color: #fff;
     content: attr(data-label);
     font-size: 1.4rem;
     padding-right: 2rem;
@@ -285,6 +346,7 @@
 .customer .pagination li {
   flex: 1 1;
   max-width: 4rem;
+  color: #fff;
 }
 
 .customer .pagination li:not(:last-child) {
@@ -300,6 +362,11 @@
   width: 100%;
   padding: 0;
   text-decoration: none;
+  color: #fff;
+}
+
+.customer .pagination li :first-child:hover {
+  color: #d4af37;
 }
 
 .customer .pagination li :first-child .svg-wrapper {
@@ -333,6 +400,11 @@
   display: block;
   margin: 0 auto;
   width: fit-content;
+  color: #fff;
+}
+
+.login a:hover {
+  color: #d4af37;
 }
 
 .login a[href='#recover'] {
@@ -346,12 +418,14 @@
 
 .login p {
   margin: 1.5rem 0;
+  color: #fff;
 }
 
 .login h3 {
   margin-top: 1.5rem;
   text-align: left;
   font-size: calc(var(--font-heading-scale) * 1.6rem);
+  color: #fff;
 }
 
 #customer_login_guest button {
@@ -389,7 +463,7 @@
 .addresses li > button,
 .addresses form button[type] {
   background-color: rgba(var(--color-background), var(--alpha-button-background));
-  color: rgb(var(--color-link));
+  color: #fff;
 }
 
 @media only screen and (min-width: 750px) {
@@ -405,6 +479,66 @@
   max-width: var(--page-width);
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+:is(.account, .order) h1 {
+  color: #fff;
+}
+
+:is(.account, .order) h2 {
+  color: #fff;
+}
+
+:is(.account, .order) h3 {
+  color: #fff;
+}
+
+:is(.account, .order) h4 {
+  color: #fff;
+}
+
+:is(.account, .order) h5 {
+  color: #fff;
+}
+
+:is(.account, .order) h6 {
+  color: #fff;
+}
+
+:is(.account, .order) p {
+  color: #fff;
+}
+
+:is(.account, .order) span {
+  color: #fff;
+}
+
+:is(.account, .order) a {
+  color: #fff;
+}
+
+:is(.account, .order) a:hover {
+  color: #d4af37;
+}
+
+:is(.account, .order) label {
+  color: #fff;
+}
+
+:is(.account, .order) li {
+  color: #fff;
+}
+
+:is(.account, .order) td {
+  color: #fff;
+}
+
+:is(.account, .order) th {
+  color: #fff;
+}
+
+:is(.account, .order) button {
+  color: #fff;
 }
 
 @media screen and (min-width: 750px) {
@@ -441,15 +575,18 @@
 :is(.account, .order) p {
   margin: 0 0 2rem;
   font-size: 1.6rem;
+  color: #fff;
 }
 
 :is(.account, .order) h1 {
   margin-bottom: 1rem;
+  color: #fff;
 }
 
 :is(.account, .order) h2 {
   margin-top: 4rem;
   margin-bottom: 1rem;
+  color: #fff;
 }
 
 @media screen and (min-width: 990px) {
@@ -461,6 +598,11 @@
 .account h1 + a {
   display: inline-flex;
   align-items: center;
+  color: #fff;
+}
+
+.account h1 + a:hover {
+  color: #d4af37;
 }
 
 .account a .svg-wrapper {
@@ -487,10 +629,12 @@
   box-shadow: 0 0 0 0.1rem rgba(var(--color-link), 0.2);
   border: 0.1rem solid transparent;
   font-size: 1.2rem;
+  color: #fff;
 }
 
 .account table td:first-of-type a:hover {
   box-shadow: 0 0 0 0.2rem rgba(var(--color-link), 0.2);
+  color: #d4af37;
 }
 
 .order td:first-of-type {
@@ -509,6 +653,7 @@
   font-size: 2.2rem;
   padding-top: 1.5rem;
   padding-bottom: 4rem;
+  color: #fff;
 }
 
 @media screen and (min-width: 750px) {
@@ -520,17 +665,20 @@
 
 .order tfoot tr:last-of-type td:before {
   font-size: 2.2rem;
+  color: #fff;
 }
 
 .order table p,
 .order > div:nth-of-type(2) > div:first-of-type h2,
 .order > div:nth-of-type(2) > div:last-of-type h2 + p {
   margin-bottom: 0;
+  color: #fff;
 }
 
 .order > div:nth-of-type(2) > div:first-of-type h2 ~ p {
   margin-bottom: 0;
   font-size: 1.4rem;
+  color: #fff;
 }
 
 .order > div:nth-of-type(2) > div:first-of-type h2 ~ p:last-of-type {
@@ -542,11 +690,13 @@
   margin-top: 0.05px;
   display: flex;
   flex-direction: column;
+  color: #fff;
 }
 
 .order .item-props > span {
   word-break: break-all;
   line-height: calc(1 + 0.2 / var(--font-body-scale));
+  color: #fff;
 }
 
 .order .fulfillment {
@@ -556,14 +706,21 @@
   margin-top: 1rem;
   font-size: 1.4rem;
   text-align: left;
+  color: #fff;
 }
 
 .order .fulfillment a {
   margin: 0.7rem 0;
+  color: #fff;
+}
+
+.order .fulfillment a:hover {
+  color: #d4af37;
 }
 
 .order .fulfillment span {
   display: block;
+  color: #fff;
 }
 
 .order .cart-discount {
@@ -571,6 +728,7 @@
   margin-top: 1rem;
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
+  color: #fff;
 }
 
 @media screen and (min-width: 750px) {
@@ -588,6 +746,10 @@
   margin-bottom: 0;
 }
 
+.order tbody li {
+  color: #fff;
+}
+
 @media screen and (min-width: 750px) {
   .order tbody ul {
     text-align: left;
@@ -596,6 +758,11 @@
 
 .order table a {
   line-height: calc(1 + 0.3 / var(--font-body-scale));
+  color: #fff;
+}
+
+.order table a:hover {
+  color: #d4af37;
 }
 
 .order tbody tr:first-of-type td:first-of-type > div {
@@ -613,30 +780,38 @@
 .order .properties {
   font-size: 1.4rem;
   margin-top: 1rem;
+  color: #fff;
 }
 
 .order .properties span {
   display: block;
   line-height: calc(1 + 0.2 / var(--font-body-scale));
+  color: #fff;
 }
 
 .order .svg-wrapper {
   width: 1.1rem;
-  color: rgb(var(--color-foreground));
+  color: #fff;
   margin-right: 0.5rem;
 }
 
 .order dl {
   margin: 0;
+  color: #fff;
+}
+
+.order dt {
+  color: #fff;
 }
 
 .order dd {
   margin-left: 0;
   line-height: calc(1 + 0.3 / var(--font-body-scale));
+  color: #fff;
 }
 
 .order dd s {
-  color: rgba(var(--color-foreground), 0.7);
+  color: #fff;
 }
 
 .order .unit-price {
@@ -644,17 +819,19 @@
   letter-spacing: 0.07rem;
   line-height: calc(1 + 0.2 / var(--font-body-scale));
   margin-top: 0.2rem;
-  color: rgba(var(--color-foreground), 0.7);
+  color: #fff;
 }
 
 .order .regular-price {
   font-size: 1.3rem;
+  color: #fff;
 }
 
 /* Addresses */
 .addresses li > button {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+  color: #fff;
 }
 
 .addresses li > button + button,
@@ -672,11 +849,56 @@
   margin-right: 1rem;
 }
 
+.addresses h1 {
+  color: #fff;
+}
+
+.addresses h2 {
+  color: #fff;
+}
+
+.addresses h3 {
+  color: #fff;
+}
+
+.addresses h4 {
+  color: #fff;
+}
+
+.addresses h5 {
+  color: #fff;
+}
+
+.addresses h6 {
+  color: #fff;
+}
+
+.addresses p {
+  color: #fff;
+}
+
+.addresses span {
+  color: #fff;
+}
+
+.addresses a {
+  color: #fff;
+}
+
+.addresses a:hover {
+  color: #d4af37;
+}
+
+.addresses label {
+  color: #fff;
+}
+
 label[for='AddressCountryNew'],
 label[for='AddressProvinceNew'] {
   display: block;
   font-size: 1.4rem;
   margin-bottom: 0.6rem;
+  color: #fff;
 }
 
 .addresses form {
@@ -695,6 +917,10 @@ label[for='AddressProvinceNew'] {
   text-align: center;
 }
 
+.addresses li {
+  color: #fff;
+}
+
 li[data-address] {
   margin-top: 5rem;
 }
@@ -709,12 +935,14 @@ li[data-address] {
 
 .addresses h2 {
   text-align: left;
+  color: #fff;
 }
 
 li[data-address] > h2 {
   text-align: center;
   font-size: calc(var(--font-heading-scale) * 1.8rem);
   margin-bottom: 0;
+  color: #fff;
 }
 
 @media only screen and (min-width: 750px) {
@@ -725,6 +953,7 @@ li[data-address] > h2 {
 
 .addresses ul p {
   margin-bottom: 0;
+  color: #fff;
 }
 
 .addresses input[type='checkbox'] {

@@ -81,7 +81,7 @@
       "settings": {
         "section_title": "OUR PRODUCTS",
         "title_align": "center",
-        "collection": "marketplace",
+        "collection": "store",
         "products_to_show": 12,
         "show_view_all_button": false,
         "view_all_text": "VIEW ALL PRODUCTS",
@@ -101,55 +101,55 @@
         "button_hover_text_color": "#000000"
       }
     },
-    "features_banner_N8ibKE": {
+    "features_banner_hLyPfj": {
       "type": "features-banner",
       "blocks": {
-        "feature_PULWWq": {
+        "feature_iM3Nrh": {
           "type": "feature",
           "settings": {
             "use_custom_image": true,
-            "custom_icon_image": "shopify://shop_images/icon.png",
+            "custom_icon_image": "shopify://shop_images/Paypal_2014_logo.png",
             "icon": "hand-star",
-            "title": "High Quality",
-            "description": "crafted from top materials"
+            "title": "Pay with PayPal",
+            "description": "Instant recognition, buyer reassurance, and global trust."
           }
         },
-        "feature_N6qCYd": {
+        "feature_JGPFXQ": {
           "type": "feature",
           "settings": {
             "use_custom_image": true,
-            "custom_icon_image": "shopify://shop_images/icon_1.png",
+            "custom_icon_image": "shopify://shop_images/6993627.png",
             "icon": "badge",
-            "title": "Warrany Protection",
-            "description": "Over 2 years"
+            "title": "Secure Payments",
+            "description": "All transactions processed safely through protected (stipe??) payment gateways."
           }
         },
-        "feature_pLTNNr": {
+        "feature_XPtAWU": {
           "type": "feature",
           "settings": {
             "use_custom_image": true,
-            "custom_icon_image": "shopify://shop_images/Vector.png",
+            "custom_icon_image": "shopify://shop_images/shipping-calculator-customizer.png",
             "icon": "box",
-            "title": "Free Shipping",
-            "description": "Order over 150 $"
+            "title": "Calculate Shipping",
+            "description": "Check delivery estimates based on your location before you buy."
           }
         },
-        "feature_yLNTfD": {
+        "feature_FP4UdT": {
           "type": "feature",
           "settings": {
             "use_custom_image": true,
             "custom_icon_image": "shopify://shop_images/2891214031638194523_1.png",
             "icon": "headset",
-            "title": "24 / 7 Support",
-            "description": "Dedicated support"
+            "title": "24/7 Platform Support",
+            "description": "Help with accounts, orders, and using The Magic Bazaar."
           }
         }
       },
       "block_order": [
-        "feature_PULWWq",
-        "feature_N6qCYd",
-        "feature_pLTNNr",
-        "feature_yLNTfD"
+        "feature_iM3Nrh",
+        "feature_JGPFXQ",
+        "feature_XPtAWU",
+        "feature_FP4UdT"
       ],
       "name": "Features Banner",
       "settings": {
@@ -164,6 +164,6 @@
     "product-grid",
     "rich_text_wUgymd",
     "products_showcase_CikKHA",
-    "features_banner_N8ibKE"
+    "features_banner_hLyPfj"
   ]
 }

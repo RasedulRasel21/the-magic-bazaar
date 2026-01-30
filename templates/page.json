@@ -11,13 +11,46 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "rich_text_MCEnpC": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_XH6ETH": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>About Magic Bazaar</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_FXhcfB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Welcome to <strong>Magic Bazaar</strong> – an online store built for people who love magic, secrets, and that “how on earth did they do that?” feeling.</p><p>Whether you’re a working performer, a hobbyist who’s just caught the bug, or you’re buying a gift for someone who’s impossible to shop for, we’re here to make finding brilliant magic <strong>easy, exciting, and trustworthy</strong>.</p><h2><strong>Our Mission</strong></h2><p>Magic is at its best when it’s shared. Our mission is simple:</p><p><strong>To connect magicians with exceptional creators, making great magic more accessible through clear information, fair pricing, and a smooth buying experience.</strong></p><p>No fluff. No misleading hype. Just well-presented magic you can actually use.</p><p>Magic Bazaar was created by <strong>Asif Nazir, Dani Marko, and Thomas Sealey</strong>, who welcome you to a platform built by magicians, for magicians. We have magic and passion at our heart, and we’re committed to making magic more accessible while reducing barriers for creators to share their ideas, methods, and inspiration with the world.</p><p> </p><h2><strong>What You’ll Find Here</strong></h2><p>Magic Bazaar is a curated marketplace featuring both physical products and digital downloads from working magicians and independent creators around the world.</p><p>Expect things like:</p><ul><li>Practical, real-world effects you can perform anywhere</li><li>Visual magic that plays big for live audiences and social media</li><li>Clever props and utility gimmicks — with honest guidance on what you’re getting</li><li>Digital releases for instant access and learning</li></ul><p>We focus on magic that <strong>feels good to perform and gets genuine reactions</strong> — not just clever ideas that stay in a drawer.</p><p> </p><h2><strong>Why People Shop With Us</strong></h2><p><strong>Curated, Not Cluttered</strong></p><p>Everything listed on Magic Bazaar earns its place. We prioritise strong methods, smart design, and real performance value.</p><p><strong>Buy Direct from Creators</strong></p><p>You’re purchasing straight from the magicians and makers behind the work. That keeps prices fair and supports the the people pushing magic forward.</p><p><strong>Clear, Useful Descriptions</strong></p><p>We tell you what you actually want to know: what it is, how it it plays, what skills are needed, and who it’s right for.</p><p><strong>A Platform That Respects Magic</strong></p><p>Creators deserve proper credit and fair treatment. We’re here to showcase their work professionally and help their ideas reach the right performers.</p><p><strong>Simple, Straightforward Service</strong></p><p>From browsing to checkout, we aim to keep everything smooth, secure, and easy to use.</p><p> </p><h2><strong>Built for the Magic Community</strong></h2><p>Magic Bazaar isn’t just another online shop — it’s a platform built with the community in mind. As we grow, we want to support:</p><ul><li>Exciting new releases and overlooked hidden gems</li><li>Creator spotlights and behind-the-scenes insight</li><li>Practical tips to help you perform with confidence</li><li>A space where magic feels inspiring, creative, and fun — not overwhelming</li></ul><p> </p><h2><strong>Get in Touch</strong></h2><p>Have a question about a product, an order, or a digital download?</p><p><strong>Email:</strong> <a href=\"mailto:info@themagicbazaar.com\" title=\"mailto:info@themagicbazaar.com\">info@themagicbazaar.com</a></p><p>We’ll always do our best to point you in the right direction.</p><p> </p><p><strong>Thanks for visiting Magic Bazaar.</strong><br/><br/>If you’re here for the moments, the reactions, and the craft — you’re in the right place.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_XH6ETH",
+        "text_FXhcfB"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "rich_text_MCEnpC"
   ]
 }

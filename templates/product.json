@@ -92,7 +92,7 @@
       "settings": {
         "section_title": "Related PRODUCTS",
         "title_align": "center",
-        "collection": "marketplace",
+        "collection": "store",
         "products_to_show": 2,
         "show_view_all_button": false,
         "view_all_text": "VIEW ALL PRODUCTS",

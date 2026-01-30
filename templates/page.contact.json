@@ -45,6 +45,7 @@
     },
     "contact_support_tabs_jca7mD": {
       "type": "contact-support-tabs",
+      "disabled": true,
       "name": "Contact Support Tabs",
       "settings": {
         "tab1_text": "Chat Now",

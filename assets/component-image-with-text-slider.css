@@ -113,7 +113,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 12px 32px;
+  padding: 12px 18px;
   background-color: rgba(204, 164, 102, 1);
   color: #000;
   text-decoration: none;
@@ -171,13 +171,13 @@
 @media screen and (max-width: 749px) {
   .image-with-text__buttons {
     flex-direction: column;
-    gap: 10px;
+    gap: 18px;
   }
 
   .button--bordered {
     width: 100%;
-    padding: 10px 20px;
-    font-size: 1.4rem;
+    padding: 10px;
+    font-size: 1.2rem;
   }
 }
 
